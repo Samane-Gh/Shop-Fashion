@@ -1,443 +1,693 @@
-
-{% extends 'base.html' %}
 {% load static %}
-{% block contant%}
-{% load blog_tags %}
-<!DOCTYPE html>
-	<html lang="zxx" class="no-js">
-	
-		<body>	
-			
-			<!-- start banner Area -->
-			<section class="banner-area relative">
-				<div class="overlay overlay-bg"></div>				
-				<div class="container">
-					<div class="row fullscreen align-items-center justify-content-between">
-						<div class="col-lg-6 col-md-6 banner-left">
-							<h6 class="text-white">Away from monotonous life</h6>
-							<h1 class="text-white">Magical Travel</h1>
-							<p class="text-white">
-								If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.
-							</p>
-							<a href="#" class="primary-btn text-uppercase">Get Started</a>
-						</div>
-						
-					</div>
-				</div>					
-			</section>
-			<!-- End banner Area -->
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Fashion | Teamplate</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
-			<!-- Start popular-destination Area -->
-			<section class="popular-destination-area section-gap">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Popular Destinations</h1>
-		                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day.</p>
-		                    </div>
-		                </div>
-		            </div>						
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{%static 'img/d1.jpg' %}" alt="">
-								</div>
-								<div class="desc">	
-									<a href="#" class="price-btn">$150</a>			
-									<h4>Mountain River</h4>
-									<p>Paraguay</p>			
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{%static 'img/d2.jpg' %}" alt="">
-								</div>
-								<div class="desc">	
-									<a href="#" class="price-btn">$250</a>			
-									<h4>Dream City</h4>
-									<p>Paris</p>			
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{%static 'img/d3.jpg' %}" alt="">
-								</div>
-								<div class="desc">	
-									<a href="#" class="price-btn">$350</a>			
-									<h4>Cloud Mountain</h4>
-									<p>Sri Lanka</p>			
-								</div>
-							</div>
-						</div>												
-					</div>
-				</div>	
-			</section>
-			<!-- End popular-destination Area -->
-			
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/progressbar_barfiller.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/gijgo.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animated-headline.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    
+</head>
+<body class="full-wrapper">
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <img src="assets/img/logo/loder.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start-->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area ">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                        <div class="header-left d-flex align-items-center">
+                            <!-- Logo -->
+                            <div class="logo">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            </div>
+                            <!-- Main-menu -->
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a href="index.html">Home</a></li> 
+                                        <li><a href="shop.html">shop</a></li>
+                                        <li><a href="about.html">About</a></li>
+                                        <li><a href="blog.html">Blog</a>
+                                            <ul class="submenu">
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="blog_details.html">Blog Details</a></li>
+                                                <li><a href="elements.html">Elements</a></li>
+                                                <li><a href="product_details.html">Product Details</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>   
+                        </div>
+                        <div class="header-right1 d-flex align-items-center">
+                            <!-- Social -->
+                            <div class="header-social d-none d-md-block">
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            </div>
+                            <!-- Search Box -->
+                            <div class="search d-none d-md-block">
+                                <ul class="d-flex align-items-center">
+                                    <li class="mr-15">
+                                        <div class="nav-search search-switch">
+                                            <i class="ti-search"></i>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="card-stor">
+                                            <img src="assets/img/gallery/card.svg" alt="">
+                                            <span>0</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <!-- header end -->
+    <main>
+        <!--? Hero Area Start-->
+        <div class="container-fluid">
+            <div class="slider-area">
+                <!-- Mobile Device Show Menu-->
+                <div class="header-right2 d-flex align-items-center">
+                    <!-- Social -->
+                    <div class="header-social  d-block d-md-none">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                    <!-- Search Box -->
+                    <div class="search d-block d-md-none" >
+                        <ul class="d-flex align-items-center">
+                            <li class="mr-15">
+                                <div class="nav-search search-switch">
+                                    <i class="ti-search"></i>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="card-stor">
+                                    <img src="assets/img/gallery/card.svg" alt="">
+                                    <span>0</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /End mobile  Menu-->
 
-			<!-- Start price Area -->
-			<section class="price-area section-gap">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">We Provide Affordable Prices</h1>
-		                        <p>Well educated, intellectual people, especially scientists at all times demonstrate considerably.</p>
-		                    </div>
-		                </div>
-		            </div>						
-					<div class="row">
-						<div class="col-lg-4">
-							<div class="single-price">
-								<h4>Cheap Packages</h4>
-								<ul class="price-list">
-									<li class="d-flex justify-content-between align-items-center">
-										<span>New York</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Maldives</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Sri Lanka</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Nepal</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Thiland</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>	
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Singapore</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>														
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-price">
-								<h4>Luxury Packages</h4>
-								<ul class="price-list">
-									<li class="d-flex justify-content-between align-items-center">
-										<span>New York</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Maldives</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Sri Lanka</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Nepal</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Thiland</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>	
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Singapore</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>														
-								</ul>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-price">
-								<h4>Camping Packages</h4>
-								<ul class="price-list">
-									<li class="d-flex justify-content-between align-items-center">
-										<span>New York</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Maldives</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Sri Lanka</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Nepal</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Thiland</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>	
-									<li class="d-flex justify-content-between align-items-center">
-										<span>Singapore</span>
-										<a href="#" class="price-btn">$1500</a>
-									</li>														
-								</ul>
-							</div>
-						</div>												
-					</div>
-				</div>	
-			</section>
-			<!-- End price Area -->
-			
+                <div class="slider-active dot-style">
+                    <!-- Single -->
+                    <div class="single-slider slider-bg1 hero-overly slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-8 col-lg-9">
+                                    <!-- Hero Caption -->
+                                    <div class="hero__caption">
+                                        <h1>fashion<br>changing<br>always</h1>
+                                        <a href="shop.html" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="single-slider slider-bg2 hero-overly slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-8 col-lg-9">
+                                    <!-- Hero Caption -->
+                                    <div class="hero__caption">
+                                        <h1>fashion<br>changing<br>always</h1>
+                                        <a href="shop.html" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="single-slider slider-bg3 hero-overly slider-height d-flex align-items-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-xl-8 col-lg-9">
+                                    <!-- Hero Caption -->
+                                    <div class="hero__caption">
+                                        <h1>fashion<br>changing<br>always</h1>
+                                        <a href="shop.html" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Hero -->
+        <!--? Popular Items Start -->
+        <div class="popular-items pt-50">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                            <div class="popular-img">
+                                <img src="assets/img/gallery/popular1.png" alt="">
+                                <div class="img-cap">
+                                    <span>Glasses</span>
+                                </div>
+                                <div class="favorit-items">
+                                 <a href="shop.html" class="btn">Shop Now</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                        <div class="popular-img">
+                            <img src="assets/img/gallery/popular2.png" alt="">
+                            <div class="img-cap">
+                                <span>Watches</span>
+                            </div>
+                            <div class="favorit-items">
+                             <a href="shop.html" class="btn">Shop Now</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                    <div class="popular-img">
+                        <img src="assets/img/gallery/popular3.png" alt="">
+                        <div class="img-cap">
+                            <span>Jackets</span>
+                        </div>
+                        <div class="favorit-items">
+                         <a href="shop.html" class="btn">Shop Now</a>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+                <div class="popular-img">
+                    <img src="assets/img/gallery/popular4.png" alt="">
+                    <div class="img-cap">
+                        <span>Clothes</span>
+                    </div>
+                    <div class="favorit-items">
+                     <a href="shop.html" class="btn">Shop Now</a>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+<!-- Popular Items End -->
+<!--? New Arrival Start -->
+<div class="new-arrival">
+    <div class="container">
+        <!-- Section tittle -->
+        <div class="row justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-10">
+                <div class="section-tittle mb-60 text-center wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
+                    <h2>new<br>arrival</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
+                    <div class="popular-img">
+                        <img src="assets/img/gallery/arrival1.png" alt="">
+                        <div class="favorit-items">
+                            <!-- <span class="flaticon-heart"></span> -->
+                            <img src="assets/img/gallery/favorit-card.png" alt="">
+                        </div>
+                    </div>
+                    <div class="popular-caption">
+                        <h3><a href="product_details.html">Knitted Jumper</a></h3>
+                        <div class="rating mb-10">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span>$ 30.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                    <div class="popular-img">
+                        <img src="assets/img/gallery/arrival2.png" alt="">
+                        <div class="favorit-items">
+                            <!-- <span class="flaticon-heart"></span> -->
+                            <img src="assets/img/gallery/favorit-card.png" alt="">
+                        </div>
+                    </div>
+                    <div class="popular-caption">
+                     <h3><a href="product_details.html">Knitted Jumper</a></h3>
+                     <div class="rating mb-10">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <span>$ 30.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
+                <div class="popular-img">
+                    <img src="assets/img/gallery/arrival3.png" alt="">
+                    <div class="favorit-items">
+                        <!-- <span class="flaticon-heart"></span> -->
+                        <img src="assets/img/gallery/favorit-card.png" alt="">
+                    </div>
+                </div>
+                <div class="popular-caption">
+                 <h3><a href="product_details.html">Knitted Jumper</a></h3>
+                 <div class="rating mb-10">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <span>$ 30.00</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+        <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+            <div class="popular-img">
+                <img src="assets/img/gallery/arrival4.png" alt="">
+                <div class="favorit-items">
+                    <!-- <span class="flaticon-heart"></span> -->
+                    <img src="assets/img/gallery/favorit-card.png" alt="">
+                </div>
+            </div>
+            <div class="popular-caption">
+             <h3><a href="product_details.html">Knitted Jumper</a></h3>
+             <div class="rating mb-10">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <span>$ 30.00</span>
+        </div>
+    </div>
+</div>
+<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+        <div class="popular-img">
+            <img src="assets/img/gallery/arrival5.png" alt="">
+            <div class="favorit-items">
+                <!-- <span class="flaticon-heart"></span> -->
+                <img src="assets/img/gallery/favorit-card.png" alt="">
+            </div>
+        </div>
+        <div class="popular-caption">
+         <h3><a href="product_details.html">Knitted Jumper</a></h3>
+         <div class="rating mb-10">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <span>$ 30.00</span>
+    </div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
+        <div class="popular-img">
+            <img src="assets/img/gallery/arrival6.png" alt="">
+            <div class="favorit-items">
+                <!-- <span class="flaticon-heart"></span> -->
+                <img src="assets/img/gallery/favorit-card.png" alt="">
+            </div>
+        </div>
+        <div class="popular-caption">
+         <h3><a href="product_details.html">Knitted Jumper</a></h3>
+         <div class="rating mb-10">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <span>$ 30.00</span>
+    </div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
+        <div class="popular-img">
+            <img src="assets/img/gallery/arrival7.png" alt="">
+            <div class="favorit-items">
+                <!-- <span class="flaticon-heart"></span> -->
+                <img src="assets/img/gallery/favorit-card.png" alt="">
+            </div>
+        </div>
+        <div class="popular-caption">
+         <h3><a href="product_details.html">Knitted Jumper</a></h3>
+         <div class="rating mb-10">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <span>$ 30.00</span>
+    </div>
+</div>
+</div>
+<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
+        <div class="popular-img">
+            <img src="assets/img/gallery/arrival8.png" alt="">
+            <div class="favorit-items">
+                <!-- <span class="flaticon-heart"></span> -->
+                <img src="assets/img/gallery/favorit-card.png" alt="">
+            </div>
+        </div>
+        <div class="popular-caption">
+         <h3><a href="product_details.html">Knitted Jumper</a></h3>
+         <div class="rating mb-10">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+        </div>
+        <span>$ 30.00</span>
+    </div>
+</div>
+</div>
+</div>
+<!-- Button -->
+<div class="row justify-content-center">
+    <div class="room-btn">
+        <a href="catagori.html" class="border-btn">Browse More</a>
+    </div>
+</div>
+</div>
+</div>
+<!--? New Arrival End -->
+<!--? collection -->
+<section class="collection section-bg2 section-padding30 section-over1 ml-15 mr-15" data-background="assets/img/gallery/section_bg01.png">
+    <div class="container-fluid"></div>
+    <div class="row justify-content-center">
+        <div class="col-xl-7 col-lg-9">
+            <div class="single-question text-center">
+                <h2 class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".1s">collection houses our first-ever</h2>
+                <a href="about.html" class="btn class="wow fadeInUp" data-wow-duration="2s" data-wow-delay=".4s">About Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- End collection -->
+<!--? Popular Locations Start 01-->
+<div class="popular-product pt-50">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="single-product mb-50">
+                    <div class="location-img">
+                        <img src="assets/img/gallery/popular-imtes1.png" alt="">
+                    </div>
+                    <div class="location-details">
+                        <p><a href="product_details.html">Established fact that by the<br> readable content</a></p>
+                        <a href="product_details.html" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="single-product mb-50">
+                    <div class="location-img">
+                        <img src="assets/img/gallery/popular-imtes2.png" alt="">
+                    </div>
+                    <div class="location-details">
+                        <p><a href="product_details.html">Established fact that by the<br> readable content</a></p>
+                        <a href="product_details.html" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Popular Locations End -->
+<!--? Services Area Start -->
+<div class="categories-area section-padding40 gray-bg">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-cat mb-50 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                    <div class="cat-icon">
+                        <img src="assets/img/icon/services1.svg" alt="">
+                    </div>
+                    <div class="cat-cap">
+                        <h5>Fast & Free Delivery</h5>
+                        <p>Free delivery on all orders</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-cat mb-50 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
+                    <div class="cat-icon">
+                        <img src="assets/img/icon/services2.svg" alt="">
+                    </div>
+                    <div class="cat-cap">
+                        <h5>Fast & Free Delivery</h5>
+                        <p>Free delivery on all orders</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-cat mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
+                    <div class="cat-icon">
+                        <img src="assets/img/icon/services3.svg" alt="">
+                    </div>
+                    <div class="cat-cap">
+                        <h5>Fast & Free Delivery</h5>
+                        <p>Free delivery on all orders</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-cat wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
+                    <div class="cat-icon">
+                        <img src="assets/img/icon/services4.svg" alt="">
+                    </div>
+                    <div class="cat-cap">
+                        <h5>Fast & Free Delivery</h5>
+                        <p>Free delivery on all orders</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--? Services Area End -->
+</main>
+<footer>
+    <!-- Footer Start-->
+    <div class="footer-area footer-padding">
+        <div class="container-fluid ">
+            <div class="row d-flex justify-content-between">
+                <div class="col-xl-3 col-lg-3 col-md-8 col-sm-8">
+                 <div class="single-footer-caption mb-50">
+                   <div class="single-footer-caption mb-30">
+                      <!-- logo -->
+                      <div class="footer-logo mb-35">
+                       <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                   </div>
+                   <div class="footer-tittle">
+                       <div class="footer-pera">
+                           <p>Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla.</p>
+                       </div>
+                   </div>
+                   <!-- social -->
+                   <div class="footer-social">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+        <div class="single-footer-caption mb-50">
+            <div class="footer-tittle">
+                <h4>Quick links</h4>
+                <ul>
+                    <li><a href="#">Image Licensin</a></li>
+                    <li><a href="#">Style Guide</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+        <div class="single-footer-caption mb-50">
+            <div class="footer-tittle">
+                <h4>Shop Category</h4>
+                <ul>
+                    <li><a href="#">Image Licensin</a></li>
+                    <li><a href="#">Style Guide</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">
+        <div class="single-footer-caption mb-50">
+            <div class="footer-tittle">
+                <h4>Pertners</h4>
+                <ul>
+                    <li><a href="#">Image Licensin</a></li>
+                    <li><a href="#">Style Guide</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-2 col-lg-3 col-md-4 col-sm-4">
+        <div class="single-footer-caption mb-50">
+            <div class="footer-tittle">
+                <h4>Get in touch</h4>
+                <ul>
+                    <li><a href="#">(89) 982-278 356</a></li>
+                    <li><a href="#">demo@colorlib.com</a></li>
+                    <li><a href="#">67/A, Colorlib, Green road, NYC</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<!-- footer-bottom area -->
+<div class="footer-bottom-area">
+    <div class="container">
+        <div class="footer-border">
+           <div class="row d-flex align-items-center">
+               <div class="col-xl-12 ">
+                   <div class="footer-copy-right text-center">
+                       <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!-- Footer End-->
+</footer>
+<!--? Search model Begin -->
+<div class="search-model-box">
+    <div class="h-100 d-flex align-items-center justify-content-center">
+        <div class="search-close-btn">+</div>
+        <form class="search-model-form">
+            <input type="text" id="search-input" placeholder="Searching key.....">
+        </form>
+    </div>
+</div>
+<!-- Search model end -->
+<!-- Scroll Up -->
+<div id="back-top" >
+    <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+</div>
 
-			<!-- Start other-issue Area -->
-			<section class="other-issue-area section-gap">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-9">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Other issues we can help you with</h1>
-		                        <p>We all live in an age that belongs to the young at heart. Life that is.</p>
-		                    </div>
-		                </div>
-		            </div>					
-					<div class="row">
-						<div class="col-lg-3 col-md-6">
-							<div class="single-other-issue">
-								<div class="thumb">
-									<img class="img-fluid" src="{%static 'img/o1.jpg' %}" alt="">					
-								</div>
-								<a href="#">
-									<h4>Rent a Car</h4>
-								</a>
-								<p>
-									The preservation of human life is the ultimate value, a pillar of ethics and the foundation.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<div class="single-other-issue">
-								<div class="thumb">
-									<img class="img-fluid" src="{%static 'img/o2.jpg' %}" alt="">					
-								</div>
-								<a href="#">
-									<h4>Cruise Booking</h4>
-								</a>
-								<p>
-									I was always somebody who felt quite sorry for myself, what I had not got compared.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<div class="single-other-issue">
-								<div class="thumb">
-									<img class="img-fluid" src="{%static 'img/o3.jpg' %}" alt="">					
-								</div>
-								<a href="#">
-									<h4>To Do List</h4>
-								</a>
-								<p>
-									The following article covers a topic that has recently moved to center stage–at least it seems.
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6">
-							<div class="single-other-issue">
-								<div class="thumb">
-									<img class="img-fluid" src="{%static 'img/o4.jpg' %}" alt="">					
-								</div>
-								<a href="#">
-									<h4>Food Features</h4>
-								</a>
-								<p>
-									There are many kinds of narratives and organizing principles. Science is driven by evidence.
-								</p>
-							</div>
-						</div>																		
-					</div>
-				</div>	
-			</section>
-			<!-- End other-issue Area -->
-			
+<!-- JS here -->
+<!-- Jquery, Popper, Bootstrap -->
+<script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
+<script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+<script src="{% static 'assets/js/popper.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
 
-			<!-- Start testimonial Area -->
-		    <section class="testimonial-area section-gap">
-		        <div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Testimonial from our Clients</h1>
-		                        <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="row">
-		                <div class="active-testimonial">
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{%static 'img/elements/user1.png'%}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
-		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{%static 'img/elements/user2.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{%static 'img/elements/user1.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
-		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{%static 'img/elements/user2.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{%static 'img/elements/user1.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
-		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
-									</div>	
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{%static 'img/elements/user2.png'%}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
-		                        </div>
-		                    </div>		                    		                    
-		                </div>
-		            </div>
-		        </div>
-		    </section>
-		    <!-- End testimonial Area -->
+<!-- Slick-slider , Owl-Carousel ,slick-nav -->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'assets/js/slick.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>
 
-			<!-- Start home-about Area -->
-			<section class="home-about-area">
-				<div class="container-fluid">
-					<div class="row align-items-center justify-content-end">
-						<div class="col-lg-6 col-md-12 home-about-left">
-							<h1>
-								Did not find your Package? <br>
-								Feel free to ask us. <br>
-								We‘ll make it for you
-							</h1>
-							<p>
-								inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
-							</p>
-							<a href="#" class="primary-btn text-uppercase">request custom price</a>
-						</div>
-						<div class="col-lg-6 col-md-12 home-about-right no-padding">
-							<img class="img-fluid" src= "{%static 'img/about-img.jpg' %}" alt="">
-						</div>
-					</div>
-				</div>	
-			</section>
-			<!-- End home-about Area -->
-			
-	
-			<!-- Start blog Area -->
-			<section class="recent-blog-area section-gap">
-				 {% latest_posts %}
-			<!-- End recent-blog Area -->			
-			</section>
-			<!-- start footer Area -->		
-			
-			<script src="{%static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
-			<script src="{%static 'js/popper.min.js' %}"></script>
-			<script src="{%static 'js/vendor/bootstrap.min.js' %}"></script>			
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>		
- 			<script src="{%static 'js/jquery-ui.js' %}"></script>					
-  			<script src="{%static 'js/easing.min.js' %}"></script>			
-			<script src="{%static 'js/hoverIntent.js' %}"></script>
-			<script src="{%static 'js/superfish.min.js' %}"></script>	
-			<script src="{%static 'js/jquery.ajaxchimp.min.js' %}"></script>
-			<script src="{%static 'js/jquery.magnific-popup.min.js' %}"></script>						
-			<script src="{%static 'js/jquery.nice-select.min.js' %}"></script>					
-			<script src="{%static 'js/owl.carousel.min.js' %}"></script>							
-			<script src="{%static 'js/mail-script.js' %}"></script>	
-			<script src="{%static 'js/main.js' %}"></script>	
-		</body>
-	</html>
-	
-{%endblock%}
+<!-- One Page, Animated-HeadLin, Date Picker -->
+<script src="{% static 'assets/js/wow.min.js' %}"></script>
+<script src="{% static 'assets/js/animated.headline.js' %}"></script>
+<script src="{% static 'assets/js/jquery.magnific-popup.js' %}"></script>
+<script src="{% static 'assets/js/gijgo.min.js' %}"></script>
+
+<!-- Nice-select, sticky,Progress -->
+<script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.sticky.js' %}"></script>
+<script src="{% static 'assets/js/jquery.barfiller.js' %}"></script>
+
+<!-- counter , waypoint,Hover Direction -->
+<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'assets/js/hover-direction-snake.min.js' %}"></script>
+
+<!-- contact js -->
+<script src="{% static 'assets/js/contact.js' %}"></script>
+<script src="{% static 'assets/js/jquery.form.js' %}"></script>
+<script src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'assets/js/mail-script.js' %}"></script>
+<script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %}"></script>
+
+<!-- Jquery Plugins, main Jquery -->	
+<script src="{% static 'assets/js/plugins.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>
