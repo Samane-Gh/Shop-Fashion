@@ -8,6 +8,7 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from blog.forms import CommentForm
 from django.urls import reverse
 
+
 # Create your views here.
 def blog_view(request,**kwargs): 
     #posts = Post.objects.filter(status=1).order_by('title')
@@ -31,6 +32,7 @@ def blog_view(request,**kwargs):
 
 
 def blog_single(request,pid=None):
+    post = get_object_or_404(Post, id = pid)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():

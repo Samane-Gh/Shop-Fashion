@@ -1,3 +1,6 @@
+{% load static %}
+{% load blog_tags %}
+{% load humanize %}
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
@@ -113,7 +116,7 @@
       <div class="col-lg-12">
        <nav aria-label="breadcrumb">
         <ol class="breadcrumb justify-content-center">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="{% url 'website:index' %}">Home</a></li>
           <li class="breadcrumb-item"><a href="#">Blog Details</a></li> 
         </ol>
       </nav>
@@ -129,49 +132,23 @@
    <div class="col-lg-8 posts-list">
     <div class="single-post">
      <div class="feature-img">
-      <img class="img-fluid" src="assets/img/blog/single_blog_1.png" alt="">
+      <img class="img-fluid" src="{{post.image.url}}" alt="">
     </div>
     <div class="blog_details">
-      <h2 style="color: #2d2d2d;">Second divided from form fish beast made every of seas
-       all gathered us saying he our
+      <h2 style="color: #2d2d2d;">{{post.title}}
      </h2>
      <ul class="blog-info-link mt-3 mb-4">
-       <li><a href="#"><i class="fa fa-user"></i> Travel, Lifestyle</a></li>
+       <li><a href="#"><i class="fa fa-user"></i> {{cat.name}}</a></li>
+       <li><a href="#"><i class="fa fa-user"></i> {{post.published_date|date:"d M Y"}}</a></li>
+       <li><a href="#"><i class="fa fa-user"></i> {{post.counted_views}}</a></li>
        <li><a href="#"><i class="fa fa-comments"></i> 03 Comments</a></li>
      </ul>
      <p class="excert">
-       MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-       should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-       fraction of the camp price. However, who has the willpower
+          {{post.content|safe}}
      </p>
-     <p>
-       MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-       should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-       fraction of the camp price. However, who has the willpower to actually sit through a
-       self-imposed MCSE training. who has the willpower to actually
-     </p>
-     <div class="quote-wrapper">
-       <div class="quotes">
-        MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-        should have to spend money on boot camp when you can get the MCSE study materials yourself at
-        a fraction of the camp price. However, who has the willpower to actually sit through a
-        self-imposed MCSE training.
-      </div>
-    </div>
-    <p>
-     MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-     should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-     fraction of the camp price. However, who has the willpower
-   </p>
-   <p>
-     MCSE boot camps have its supporters and its detractors. Some people do not understand why you
-     should have to spend money on boot camp when you can get the MCSE study materials yourself at a
-     fraction of the camp price. However, who has the willpower to actually sit through a
-     self-imposed MCSE training. who has the willpower to actually
-   </p>
  </div>
 </div>
-<div class="navigation-top">
+{% comment %} <div class="navigation-top">
  <div class="d-sm-flex justify-content-between text-center">
   <p class="like-info"><span class="align-middle"><i class="fa fa-heart"></i></span> Lily and 4
   people like this</p>
@@ -190,21 +167,25 @@
    class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
    <div class="thumb">
      <a href="#">
-      <img class="img-fluid" src="assets/img/post/preview.png" alt="">
+      <img class="img-fluid" src="{{prev_post.image.url}}" alt="">
     </a>
   </div>
   <div class="arrow">
    <a href="#">
     <span class="lnr text-white ti-arrow-left"></span>
   </a>
-</div>
-<div class="detials">
+</div> {% endcomment %}
+ <div class="detials">
  <p>Prev Post</p>
- <a href="#">
+										{% if prev_post.id is not Null %}
+												<a href="{% url 'blog:single' pid=prev_post.id %}"><h4>{{prev_post}}</h4></a>
+										{% endif %}
+ {% comment %} <a href="#">
   <h4 style="color: #2d2d2d;">Space The Final Frontier</h4>
-</a>
+</a> {% endcomment %}
 </div>
 </div>
+{% comment %}
 <div
 class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
 <div class="detials">
@@ -527,7 +508,7 @@ class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end al
 </div>
 </div>
 </div>
-</section>
+</section> {% endcomment %}
 <!-- Blog Area End -->
 </main>
 <footer>

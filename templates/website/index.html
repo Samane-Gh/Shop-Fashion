@@ -34,7 +34,7 @@
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/loder.png" alt="">
+                    <img src="{% static 'assets/img/logo/loder.png' %}" alt="">
                 </div>
             </div>
         </div>
@@ -49,24 +49,24 @@
                         <div class="header-left d-flex align-items-center">
                             <!-- Logo -->
                             <div class="logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                                <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
                             </div>
                             <!-- Main-menu -->
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">Home</a></li> 
+                                        <li><a href="{% url 'website:index' %}">Home</a></li> 
                                         <li><a href="shop.html">shop</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="blog.html">Blog</a>
+                                        <li><a href="{% url 'website:about' %}">About</a></li>
+                                        <li><a href="{% url 'blog:index' %}">Blog</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog_details.html">Blog Details</a></li>
+                                                <li><a href="{% url 'blog:index' %}">Blog</a></li>
+                                                <li><a href="{% url 'blog:single' %}">Blog Details</a></li>
                                                 <li><a href="elements.html">Elements</a></li>
                                                 <li><a href="product_details.html">Product Details</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{% url 'website:contact' %}">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>   
@@ -88,7 +88,7 @@
                                     </li>
                                     <li>
                                         <div class="card-stor">
-                                            <img src="assets/img/gallery/card.svg" alt="">
+                                            <img src="{% static 'assets/img/gallery/card.svg' %}" alt="">
                                             <span>0</span>
                                         </div>
                                     </li>
@@ -128,7 +128,7 @@
                             </li>
                             <li>
                                 <div class="card-stor">
-                                    <img src="assets/img/gallery/card.svg" alt="">
+                                    <img src="{% static 'assets/img/gallery/card.svg' %}" alt="">
                                     <span>0</span>
                                 </div>
                             </li>
@@ -191,7 +191,7 @@
                     <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
                             <div class="popular-img">
-                                <img src="assets/img/gallery/popular1.png" alt="">
+                                <img src="{% static 'assets/img/gallery/popular1.png' %}" alt="">
                                 <div class="img-cap">
                                     <span>Glasses</span>
                                 </div>
@@ -204,7 +204,7 @@
                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                         <div class="popular-img">
-                            <img src="assets/img/gallery/popular2.png" alt="">
+                            <img src="{% static 'assets/img/gallery/popular2.png' %}" alt="">
                             <div class="img-cap">
                                 <span>Watches</span>
                             </div>
@@ -217,7 +217,7 @@
              <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                     <div class="popular-img">
-                        <img src="assets/img/gallery/popular3.png" alt="">
+                        <img src="{% static 'assets/img/gallery/popular3.png' %}" alt="">
                         <div class="img-cap">
                             <span>Jackets</span>
                         </div>
@@ -230,7 +230,7 @@
          <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
                 <div class="popular-img">
-                    <img src="assets/img/gallery/popular4.png" alt="">
+                    <img src="{% static 'assets/img/gallery/popular4.png' %}" alt="">
                     <div class="img-cap">
                         <span>Clothes</span>
                     </div>
@@ -259,10 +259,10 @@
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                 <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
                     <div class="popular-img">
-                        <img src="assets/img/gallery/arrival1.png" alt="">
+                        <img src="{% static 'assets/img/gallery/arrival1.png' %}" alt="">
                         <div class="favorit-items">
                             <!-- <span class="flaticon-heart"></span> -->
-                            <img src="assets/img/gallery/favorit-card.png" alt="">
+                            <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
                         </div>
                     </div>
                     <div class="popular-caption">
@@ -281,10 +281,10 @@
             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                 <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                     <div class="popular-img">
-                        <img src="assets/img/gallery/arrival2.png" alt="">
+                        <img src="{% static 'assets/img/gallery/arrival2.png' %}" alt="">
                         <div class="favorit-items">
                             <!-- <span class="flaticon-heart"></span> -->
-                            <img src="assets/img/gallery/favorit-card.png" alt="">
+                            <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
                         </div>
                     </div>
                     <div class="popular-caption">
@@ -303,10 +303,10 @@
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
             <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
                 <div class="popular-img">
-                    <img src="assets/img/gallery/arrival3.png" alt="">
+                    <img src="{% static 'assets/img/gallery/arrival3.png' %}" alt="">
                     <div class="favorit-items">
                         <!-- <span class="flaticon-heart"></span> -->
-                        <img src="assets/img/gallery/favorit-card.png" alt="">
+                        <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
                     </div>
                 </div>
                 <div class="popular-caption">
@@ -325,10 +325,10 @@
     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
         <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
             <div class="popular-img">
-                <img src="assets/img/gallery/arrival4.png" alt="">
+                <img src="{% static 'assets/img/gallery/arrival4.png' %}" alt="">
                 <div class="favorit-items">
                     <!-- <span class="flaticon-heart"></span> -->
-                    <img src="assets/img/gallery/favorit-card.png" alt="">
+                    <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
                 </div>
             </div>
             <div class="popular-caption">
@@ -347,10 +347,10 @@
 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
     <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
         <div class="popular-img">
-            <img src="assets/img/gallery/arrival5.png" alt="">
+            <img src="{% static 'assets/img/gallery/arrival5.png' %}" alt="">
             <div class="favorit-items">
                 <!-- <span class="flaticon-heart"></span> -->
-                <img src="assets/img/gallery/favorit-card.png" alt="">
+                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
             </div>
         </div>
         <div class="popular-caption">
@@ -369,10 +369,10 @@
 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
     <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
         <div class="popular-img">
-            <img src="assets/img/gallery/arrival6.png" alt="">
+            <img src="{% static 'assets/img/gallery/arrival6.png' %}" alt="">
             <div class="favorit-items">
                 <!-- <span class="flaticon-heart"></span> -->
-                <img src="assets/img/gallery/favorit-card.png" alt="">
+                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
             </div>
         </div>
         <div class="popular-caption">
@@ -391,10 +391,10 @@
 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
     <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
         <div class="popular-img">
-            <img src="assets/img/gallery/arrival7.png" alt="">
+            <img src="{% static 'assets/img/gallery/arrival7.png' %}" alt="">
             <div class="favorit-items">
                 <!-- <span class="flaticon-heart"></span> -->
-                <img src="assets/img/gallery/favorit-card.png" alt="">
+                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
             </div>
         </div>
         <div class="popular-caption">
@@ -413,10 +413,10 @@
 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
     <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
         <div class="popular-img">
-            <img src="assets/img/gallery/arrival8.png" alt="">
+            <img src="{% static 'assets/img/gallery/arrival8.png' %}" alt="">
             <div class="favorit-items">
                 <!-- <span class="flaticon-heart"></span> -->
-                <img src="assets/img/gallery/favorit-card.png" alt="">
+                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
             </div>
         </div>
         <div class="popular-caption">
@@ -443,7 +443,7 @@
 </div>
 <!--? New Arrival End -->
 <!--? collection -->
-<section class="collection section-bg2 section-padding30 section-over1 ml-15 mr-15" data-background="assets/img/gallery/section_bg01.png">
+<section class="collection section-bg2 section-padding30 section-over1 ml-15 mr-15" data-background="{% static 'assets/img/gallery/section_bg01.png' %}">
     <div class="container-fluid"></div>
     <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9">
@@ -463,7 +463,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="single-product mb-50">
                     <div class="location-img">
-                        <img src="assets/img/gallery/popular-imtes1.png" alt="">
+                        <img src="{% static 'assets/img/gallery/popular-imtes1.png' %}" alt="">
                     </div>
                     <div class="location-details">
                         <p><a href="product_details.html">Established fact that by the<br> readable content</a></p>
@@ -474,7 +474,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="single-product mb-50">
                     <div class="location-img">
-                        <img src="assets/img/gallery/popular-imtes2.png" alt="">
+                        <img src="{% static 'assets/img/gallery/popular-imtes2.png' %}" alt="">
                     </div>
                     <div class="location-details">
                         <p><a href="product_details.html">Established fact that by the<br> readable content</a></p>
@@ -493,7 +493,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-cat mb-50 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                     <div class="cat-icon">
-                        <img src="assets/img/icon/services1.svg" alt="">
+                        <img src="{% static 'assets/img/icon/services1.svg' %}" alt="">
                     </div>
                     <div class="cat-cap">
                         <h5>Fast & Free Delivery</h5>
@@ -504,7 +504,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-cat mb-50 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
                     <div class="cat-icon">
-                        <img src="assets/img/icon/services2.svg" alt="">
+                        <img src="{% static 'assets/img/icon/services2.svg' %}" alt="">
                     </div>
                     <div class="cat-cap">
                         <h5>Fast & Free Delivery</h5>
@@ -515,7 +515,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-cat mb-30 wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
                     <div class="cat-icon">
-                        <img src="assets/img/icon/services3.svg" alt="">
+                        <img src="{% static 'assets/img/icon/services3.svg' %}" alt="">
                     </div>
                     <div class="cat-cap">
                         <h5>Fast & Free Delivery</h5>
@@ -526,7 +526,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="single-cat wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
                     <div class="cat-icon">
-                        <img src="assets/img/icon/services4.svg" alt="">
+                        <img src="{% static 'assets/img/icon/services4.svg' %}" alt="">
                     </div>
                     <div class="cat-cap">
                         <h5>Fast & Free Delivery</h5>
@@ -549,7 +549,7 @@
                    <div class="single-footer-caption mb-30">
                       <!-- logo -->
                       <div class="footer-logo mb-35">
-                       <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
+                       <a href="index.html"><img src="{% static 'assets/img/logo/logo2_footer.png' %}" alt=""></a>
                    </div>
                    <div class="footer-tittle">
                        <div class="footer-pera">
