@@ -155,7 +155,7 @@ INTERNAL_IPS = [
 ACCOUNT_FORMS = {'signup': 'mysite.forms.MyCustomSignupForm'}
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
-AUTHENTICATION_BACKENDS = ['accounts.models.EmailOrUsernameModelBackend']
+AUTHENTICATION_BACKENDS = ['accounts.models.EmailOrUsernameModelBackend', "django.contrib.auth.backends.ModelBackend",]
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 
