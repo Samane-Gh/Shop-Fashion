@@ -7,6 +7,7 @@ from django.utils import timezone
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from blog.forms import CommentForm
 from django.urls import reverse
+from website.forms import NewsletterForm
 
 
 # Create your views here.
@@ -56,6 +57,17 @@ def blog_single(request,pid=None):
     else:
         return HttpResponseRedirect(reverse('accounts:login'))
     
+def newsletter_view(request):
+    if request.method == 'POST':
+        form =NewsletterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+    else:
+        return HttpResponseRedirect('/')
+        
+        
+        
         
 def blog_category(request,cat_name):
     posts = Post.objects.filter(status=1)

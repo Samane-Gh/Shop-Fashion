@@ -75,16 +75,18 @@
                         <div class="header-right1 d-flex align-items-center">
                             <!-- login -->
                             <div class="header-social d-none d-md-block">
-                                <ul>
-                                    {% if request.user.is_authenticated %}
-                                      <span><a href="#">Logged in as {{request.user.username}}</a></span>
-                                      <span><a href="{% url 'accounts:logout' %}">Logout </a></span>
-                                      {% else %}
+                                
+                                {% if request.user.is_authenticated %}
+                                       <span>Login as {{request.user.username}}</span>
+                                            &ensp;
+                                            &emsp;
+                                       <span><a href="{% url 'accounts:logout' %}">Logout</a></span>
+                                {% else %}
                                         <span><a href="{% url 'accounts:login' %}">Login</a></span>
                                         <span><a href="{% url 'accounts:signup' %}">SignUp</a></span>
                                     
-                                      {% endif %}
-                                  </ul>	
+                                {% endif %}
+                                  
                             </div> 
                             <!-- Search Box -->
                             <div class="search d-none d-md-block">

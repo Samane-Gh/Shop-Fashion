@@ -1,6 +1,7 @@
 #change and get a structers to admin
 from django.contrib import admin
-from website.models import Contact,Newsletter
+from website.models import Contact
+from blog.models import Newsletter
  
 # Register your models here.
 class ContactAdmin(admin.ModelAdmin):

@@ -1,6 +1,6 @@
 from django import forms
 from website.models import Contact
-from website.models import Newsletter
+from blog.models import Newsletter
 from captcha.fields import CaptchaField
 
 class NameForm(forms.Form):

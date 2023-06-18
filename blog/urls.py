@@ -16,6 +16,7 @@ urlpatterns = [
     path('single',blog_single,name='single'),
     path('search/',blog_search,name='search'),
     path('rss/feed/', LatestEntriesFeed()),
+    path('newsletter',newsletter_view,name='newsletter')
     
     #path('test',test,name='test'),
    
