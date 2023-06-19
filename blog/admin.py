@@ -5,7 +5,7 @@ from django_summernote.admin import SummernoteModelAdmin
 class PostAdmin(SummernoteModelAdmin):
     #date_hierarchy = 'created_date'
     empty_value_display = '-empty-'
-    list_display =('title','auther', 'counted_views', 'status','login_required','published_date', )
+    list_display =('title','auther', 'counted_views', 'status','login_required','published_date','tags', )
     list_filter = ('status','auther', )
     search_fields = ['title','content']
     summernote_fields = ('content',)

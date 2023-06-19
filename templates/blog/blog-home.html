@@ -37,19 +37,19 @@
                                         </a>
                                     </div>
                                     <div class="blog_details">
-                                        <a class="d-inline-block" href="{% url 'blog:single' %}">
+                                        <a class="d-inline-block" href="{% url 'blog:single' pid=post.id  %}">
                                             <h2 class="blog-head" style="color: #2d2d2d;">{{post.title}}</h2>
                                         </a>
                                         <p>
                                             {{post.content|safe}}
                                         </p>
                                         <ul class="blog-info-link">
-                                           <li><a href="#">
+                                           <li><a href="{% url 'blog:single' pid=post.id  %}">
                                             {% for cat in post.Category.all %}
 											    <a href ="{% url 'blog:category' cat_name=cat.name %}"><h>{{cat.name}}</h></a>
 										    {% endfor %}
                                            </a> </li>
-                                             <li><a href="#"><i class="fa fa-eye"></i> {{post.counted_views}}</a></li>
+                                             <li><a href="#"><i class="fa fa-eye"></i> {{ post.counted_views }}</a></li>
                                              <li><a href="#"><i class="fa fa-user"></i> {{post.auther}}</a></li>
                                             {% comment %} <li><a href="#"><i class="fa fa-comments"></i> {% comments_count post.id %}</a></li>  {% endcomment %}
                                         </ul>
@@ -118,23 +118,25 @@
                                 <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
                                 <ul class="list">
                                     <li>
-                                        <a href="#">{% include 'blog/blog-tags.html' %}</a>
+                                        {% include 'blog/blog-tags.html' %}
                                     </li>
                                 </ul>
                             </aside>
 
                             <aside class="single_sidebar_widget instagram_feeds">
-                                <h4 class="widget_title" style="color: #2d2d2d;">Instagram Feeds</h4>
-                                <ul class="instagram_row flex-wrap">
+                                <h4 class="widget_title" style="color: #2d2d2d;"> Advertisement </h4>
                                     <li>
                                         <a href="#">
-                                            <img class="img-fluid" src="{% static 'assets/img/post/post_5.png' %}" alt="">
+                                            {% include 'blog/blog-ads.html' %}
                                         </a>
                                     </li>
-                                </ul>
                             </aside>
                             <aside class="single_sidebar_widget newsletter_widget">
                                 <h4 class="widget_title" style="color: #2d2d2d;">Newsletter</h4>
+                                    <p>
+                                        Here, I focus on a range of items and features that we use in life without
+                                        giving them a second thought.
+                                    </p>
                                 <form action="{% url 'blog:newsletter' %}" method="post" class="subscription relative">
                                     {% csrf_token %}
                                 <div class="form-group">
@@ -153,16 +155,6 @@
         <!-- Blog Area End -->
     </main>
 
-<!--? Search model Begin -->
-<div class="search-model-box">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-        <div class="search-close-btn">+</div>
-        <form class="search-model-form">
-            <input type="text" id="search-input" placeholder="Searching key.....">
-        </form>
-    </div>
-</div>
-<!-- Search model end -->
 <!-- Scroll Up -->
 <div id="back-top" >
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
