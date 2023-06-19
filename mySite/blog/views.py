@@ -53,8 +53,7 @@ def blog_single(request,pid=None):
         return render(request,'blog/blog-single.html',contex)
     else:
         return HttpResponseRedirect(reverse('accounts:login'))
-    
-        
+           
 def blog_category(request,cat_name):
     posts = Post.objects.filter(status=1)
     posts = posts.filter(Category__name=cat_name)
@@ -65,8 +64,7 @@ def blog_search(request):
     posts = Post.objects.filter(status=1)
     if request.method == 'GET' :
         if request.GET.get('s'):
-           posts = posts.filter(content__contains=request.GET.get('s')) 
-        #print(request.GET.get('s'))   
+           posts = posts.filter(content__contains=request.GET.get('s'))    
     contex = {'posts': posts}
     return render(request,'blog/blog-home.html',contex)    
 

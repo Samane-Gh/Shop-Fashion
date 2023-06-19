@@ -90,20 +90,8 @@
                     <div class="col-lg-4">
                         <div class="blog_right_sidebar">
                             <aside class="single_sidebar_widget search_widget">
-                                <form action="#">
-                                    <div class="form-group">
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder='Search Keyword'
-                                            onfocus="this.placeholder = ''"
-                                            onblur="this.placeholder = 'Search Keyword'">
-                                            <div class="input-group-append">
-                                                <button class="btns" type="button"><i class="ti-search"></i></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                    type="submit">Search</button>
-                                </form>
+                   
+                                {% include 'blog/blog-search.html' %}
                             </aside>
                             <aside class="single_sidebar_widget post_category_widget">
                                 <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
@@ -123,7 +111,6 @@
                                         <a href="#">
                                             <h3 style="color: #2d2d2d;">{% latestposts %}</h3>
                                         </a>
-                                        {% comment %} <p>{{post.published_date}}</p> {% endcomment %}
                                     </div>
                                 </div>
                             </aside>
@@ -131,28 +118,7 @@
                                 <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
                                 <ul class="list">
                                     <li>
-                                        <a href="#">project</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">love</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">technology</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">travel</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">restaurant</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">life style</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">design</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">illustration</a>
+                                        <a href="#">{% include 'blog/blog-tags.html' %}</a>
                                     </li>
                                 </ul>
                             </aside>
@@ -163,31 +129,6 @@
                                     <li>
                                         <a href="#">
                                             <img class="img-fluid" src="{% static 'assets/img/post/post_5.png' %}" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static 'assets/img/post/post_6.png' %}" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static 'assets/img/post/post_7.png' %}" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static 'assets/img/post/post_8.png' %}" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static 'assets/img/post/post_9.png' %}" alt="">
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <img class="img-fluid" src="{% static 'assets/img/post/post_10.png' %}" alt="">
                                         </a>
                                     </li>
                                 </ul>
