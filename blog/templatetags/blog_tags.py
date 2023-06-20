@@ -4,7 +4,6 @@ from blog.models import Category
 register = template.Library()
 
 @register.simple_tag(name='totalposts')
-
 def function():
     posts = Post.objects.filter(status=1)
     return posts
@@ -12,7 +11,7 @@ def function():
 @register.simple_tag(name='comments_count')
 def function(pid):
     return Comment.objects.filter(post=pid,approved=True).count()
-
+    
 @register.inclusion_tag('blog/blog-popular-posts.html')
 def latestposts(arg=3):
     posts = Post.objects.filter(status=1).order_by('published_date')[:arg]
@@ -31,3 +30,4 @@ def postcategories():
 def latest_posts(arg=6):
     posts = Post.objects.filter(status=1).order_by('published_date')[:arg]
     return {'posts':posts}
+
