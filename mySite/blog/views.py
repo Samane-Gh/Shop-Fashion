@@ -44,13 +44,14 @@ def blog_single(request,pid=None):
     #         return render(request,'blog/blog-single.html',contex)        
     post = Post.objects.get(id =pid)
     counted_views =Post.objects.filter(id=post.id)
-    post.counted_views +=1
+    post.counted_views +=2
+    form.save()
     next_post = Post.objects.filter(published_date__gt=post.published_date).order_by('published_date').first()
     prev_post =Post.objects.filter(published_date__lt=post.published_date).order_by('published_date').last()
     if not post.login_required:
         comments = Comment.objects.filter(post = post.id,approved=True)
         form = CommentForm()
-        contex = {'post': post,'next_post': next_post,'prev_post': prev_post,'counted_view':counted_views,'comments': comments,'form': form}
+        contex = {'post': post,'next_post': next_post,'prev_post': prev_post,'comments': comments,'form': form}
         return render(request,'blog/blog-single.html',contex)
     else:
         return HttpResponseRedirect(reverse('accounts:login'))
