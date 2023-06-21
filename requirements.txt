@@ -10,3 +10,4 @@ faker
 django-compressor
 django-debug-toolbar
 django-rest-passwordreset
+django-hitcount

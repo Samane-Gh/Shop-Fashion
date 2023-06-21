@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'accounts',
     'django_rest_passwordreset',
-    'compressor',    
+    'compressor',   
+     
     
      
 ]

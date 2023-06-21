@@ -49,7 +49,7 @@
 											    <a href ="{% url 'blog:category' cat_name=cat.name %}"><h>{{cat.name}}</h></a>
 										    {% endfor %}
                                            </a> </li>
-                                             <li><a href="#"><i class="fa fa-eye"></i> {{ post.counted_views }}</a></li>
+                                             <li><a href="#"><i class="fa fa-eye"></i> {{post.counted_views}}</a></li>
                                              <li><a href="#"><i class="fa fa-user"></i> {{post.auther}}</a></li>
                                             {% comment %} <li><a href="#"><i class="fa fa-comments"></i> {% comments_count post.id %}</a></li>  {% endcomment %}
                                         </ul>
