@@ -3,7 +3,7 @@
 {% load blog_tags %}
 {% load humanize %}
 {% block contant %}
-<!DOCTYPE html>
+  <!DOCTYPE html>
   <main>
     <!-- breadcrumb Start-->
     <div class="page-notification page-notification2">
@@ -29,29 +29,29 @@
     <section class="blog_area single-post-area section-padding">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 posts-list">
+          <div class="col-lg-8 posts-list">            
             <div class="single-post">
               <div class="feature-img">
-                  <img class="img-fluid" src="{{ post.image.url }}" alt="">
+                <img class="img-fluid" src="{{ post.image.url }}" alt="">
               </div>
               <div class="blog_details">
                 <h2 style="color: #2d2d2d;">{{ post.title }}</h2>
                 <ul class="blog-info-link mt-3 mb-4">
-                    <li>
-                      <a href="#"><i class="fa fa-user"></i> {{ post.auther }}</a>
-                    </li>
-                    {% comment %} <li><a href="#"><i class="fa fa-calendar-full"></i> {{post.published_date|date:"d M Y"}}</a></li> {% endcomment %}
-                    <li>
-                      <a href="#"><i class="fa fa-eye"></i> {{ post.counted_views }}</a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fa fa-comment"></i> {% comments_count post.id %}</a>
-                    </li>
+                  <li>
+                    <a href="#"><i class="fa fa-user"></i> {{ post.auther }}</a>
+                  </li>
+                  {% comment %} <li><a href="#"><i class="fa fa-calendar-full"></i> {{post.published_date|date:"d M Y"}}</a></li> {% endcomment %}
+                  <li>
+                    <a href="#"><i class="fa fa-eye"></i> {{ post.counted_views }}</a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-comment"></i> {% comments_count post.id %}</a>
+                  </li>
                 </ul>
                 <p class="excert">{{ post.content|safe }}</p>
               </div>
-            </dev>
-            <div class="navigation-top">
+              </dev>
+              <div class="navigation-top">
                 <div class="navigation-area">
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
@@ -85,200 +85,205 @@
                         <a href="#"><span class="lnr text-white ti-arrow-right"></span></a>
                       </div>
                       <div class="thumb">
-                      <a href="#"><img class="img-fluid" src="{{next_post.image.url}}" alt=""></a>
+                        <a href="#">
+                          <img class="img-fluid next-post-img" src="{{ next_post.image.url }}" alt="">
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="comments-area">
-              <h4>{% comments_count post.id %} Comments</h4>
-              <div class="comment-list">
-                  <div class="single-comment justify-content-between d-flex">
-                      {% for comment in comments %}
-                        <div class="user justify-content-between d-flex">
-                          <div class="thumb">
-                            <img src="{% static 'assets/img/blog/comment_1.png' %}" alt="">
-                          </div>
-                          <div class="desc">
-                            <p class="comment">
-                              {{comment.massage}}
-                            </p>
-                            <div class="d-flex justify-content-between">
-                              <div class="d-flex align-items-center">
-                                <h5>
-                                  <a href="#">{{comment.name}}</a>
-                                </h5>
-                                <p class="date">{{comment.created_date|naturalday}} </p>
-                              </div>
-                              <div class="reply-btn">
-                                <a href="#" class="btn-reply text-uppercase">reply</a>
-                              </div>
+              <div class="comments-area">
+                <h4>{% comments_count post.id %} Comments</h4>
+                {% for comment in comments %}
+                  <div class="comment-list">
+                    <div class="single-comment justify-content-between d-flex">
+                      <div class="user justify-content-between d-flex">
+                        <div class="thumb">
+                          <img src="{% static 'assets/img/blog/comment_1.png' %}" alt="">
+                        </div>
+                        <div class="desc">
+                          <p class="comment">{{ comment.massage }}</p>
+                          <div class="d-flex justify-content-between">
+                            <div class="d-flex align-items-center">
+                              <h5>
+                                <a href="#">{{ comment.name }}</a>
+                              </h5>
+                              <p class="date">{{ comment.created_date|naturalday }}</p>
                             </div>
                           </div>
                         </div>
-                        {% comment %} {% empty %}
-                        <p>  NO comments here be the first one to tell your thouths </p> {% endcomment %}
-                      {% endfor %}
+                      </div>
+                    </div>
+                    {% comment %} {% empty %}
+                    <p>  NO comments here be the first one to tell your thouths </p> {% endcomment %}
                   </div>
-                </div>
+                {% endfor %}
+              </div>
             </div>
             <div class="comment-form">
               <h4>Leave a Reply</h4>
-              <form class="form-contact comment-form" method="post" action="{% url "blog:single" pid=post.id %}" id="commentForm">
+              <form class="form-contact comment-form"
+                    method="post"
+                    action="{% url "blog:single" pid=post.id %}">
                 {% csrf_token %}
                 <div class="row">
-                  <input type="hidden" name="post" value={{post.id}}>
-                    {% if request.user.is_authenticated %}
-                      <input type="hidden" name="name" value={{ request.user.name }}>
-                      <input type="hidden" name="email" value={{ request.user.email }}>
-                    {% else %}
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                            <input class="form-control"
-                                       name="name"
-                                       id="name"
-                                       type="text"
-                                       placeholder="Name">
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <input class="form-control"
-                                       name="email"
-                                       id="email"
-                                       type="email"
-                                       placeholder="Email">
-                        </div>
-                      </div>
-                    {% endif %}
-                    <div class="col-12">
-                        <div class="form-group">
-                          <textarea class="form-control w-100"
-                                        name="massage"
-                                        id="comment"
-                                        cols="30"
-                                        rows="9"
-                                        onfocus="this.placeholder = ''"
-                                        onblur="this.placeholder = 'Messege'"
-                                        required=""
-                                        placeholder="Write Comment"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-12">
+                  <input type="hidden" id="id_post" name="post" value={{ post.id }}>
+                  {% if request.user.is_authenticated %}
+                    <input type="hidden" name="name"  id="id_name" value={{ request.user.username }}>
+                    <input type="hidden" name="email" id="id_email" value="{{request.user.email}}">
+                  {% else %}
+                    <div class="col-sm-6">
                       <div class="form-group">
-                              <input class="form-control"
-                                     name="subject"
-                                     id="website"
-                                     type="text"
-                                     placeholder="Subject"
-                                     onfocus="this.placeholder = ''"
-                                     onblur="this.placeholder = 'Subject'">
+                        <input class="form-control"
+                               name="name"
+                               type="text"
+                               maxlength="255"
+                               required=""
+                               id="id_name"
+                               placeholder="Name">
                       </div>
                     </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <input class="form-control"
+                               name="email"
+                               type="email"
+                               maxlength="254"
+                               required=""
+                               id="id_email"
+                               placeholder="Email">
+                      </div>
+                    </div>
+                  {% endif %}
+                  <div class="col-12">
+                    <div class="form-group">
+                      <textarea class="form-control w-100"
+                                name="massage"
+                                cols="40"
+                                rows="10"
+                                onfocus="this.placeholder = ''"
+                                onblur="this.placeholder = 'Messege'"
+                                id="id_massage"
+                                required=""
+                                placeholder="Write Comment"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <input class="form-control"
+                             name="subject"
+                             type="text"
+                             placeholder="Subject"
+                             maxlength="255"
+                             required=""
+                             id="id_subject"
+                             onfocus="this.placeholder = ''"
+                             onblur="this.placeholder = 'Subject'">
+                    </div>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="button button-contactForm btn_1 boxed-btn">
-                    Post Comment</a>
+                  <button type="submit" class="btn bb-btn">
+                  Post Comment</a>
                 </div>
               </form>
               {% if messages %}
                 <ul class="messages">
                   {% for message in messages %}
-                    <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>
-                      {{ message }}
-                    </li>
+                    <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                   {% endfor %}
                 </ul>
               {% endif %}
               {% if form.subject.errors %}
-                  <ol>
-                    {% for error in form.subject.errors %}
-                      <li>
-                        <strong>{{ error|escape }}</strong>
-                      </li>
-                    {% endfor %}
-                  </ol>
+                <ol>
+                  {% for error in form.subject.errors %}
+                    <li>
+                      <strong>{{ error|escape }}</strong>
+                    </li>
+                  {% endfor %}
+                </ol>
               {% endif %}
             </div>
-          </div>
-        </div>
+          </div>    
           <div class="col-lg-4">
             <div class="blog_right_sidebar">
               <aside class="single_sidebar_widget search_widget">
-                  {% include 'blog/blog-search.html' %}
+                {% include 'blog/blog-search.html' %}
               </aside>
               <aside class="single_sidebar_widget post_category_widget">
-                  <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
-                  <ul class="list cat-list">
-                    <li>
-                      <a href="#" class="d-flex">
-                        <p>{% postcategories %}</p>
-                      </a>
-                    </li>
-                  </ul>
+                <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
+                <ul class="list cat-list">
+                  <li>
+                    <a href="#" class="d-flex">
+                      <p>{% postcategories %}</p>
+                    </a>
+                  </li>
+                </ul>
               </aside>
               <aside class="single_sidebar_widget popular_post_widget">
-                  <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
-                  <div class="media post_item">
-                    <div class="media-body">
-                      <a href="#">
+                <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
+                <div class="media post_item">
+                  <div class="media-body">
+                    <a href="#">
                       <h3 style="color: #2d2d2d;">{% latestposts %}</h3>
-                      </a>
-                    </div>
+                    </a>
                   </div>
+                </div>
               </aside>
               <aside class="single_sidebar_widget tag_cloud_widget">
-                  <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
-                  <ul class="list">
-                    <li>{% include 'blog/blog-tags.html' %}</li>
-                  </ul>
+                <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
+                <ul class="list">
+                  <li>{% include 'blog/blog-tags.html' %}</li>
+                </ul>
               </aside>
               <aside class="single_sidebar_widget instagram_feeds">
-                  <h4 class="widget_title" style="color: #2d2d2d;">Advertisement</h4>
-                  <li>
-                    <a href="#">{% include 'blog/blog-ads.html' %}</a>
-                  </li>
+                <h4 class="widget_title" style="color: #2d2d2d;">Advertisement</h4>
+                <li>
+                  <a href="#">{% include 'blog/blog-ads.html' %}</a>
+                </li>
               </aside>
               <aside class="single_sidebar_widget newsletter_widget">
-                  <h4 class="widget_title" style="color: #2d2d2d;">Newsletter</h4>
-                  <p>
-                    Here, I focus on a range of items and features that we use in life without
-                    giving them a second thought.
-                  </p>
-                  <form action="{% url 'blog:newsletter' %}"
-                        method="post"
-                        class="subscription relative">
-                    {% csrf_token %}
-                    <div class="form-group">
-                      <input type="email"
-                             class="form-control"
-                             onfocus="this.placeholder = ''"
-                             onblur="this.placeholder = 'Enter email'"
-                             placeholder="Enter email"
-                             required=""
-                             name="email">
-                    </div>
-                    <button class="btn bb-btn" type="submit">Subscribe</button>
-                    <div class="mt-10 info"></div>
-                  </form>
-                </aside>
-          </div>
-        </div>
+                <h4 class="widget_title" style="color: #2d2d2d;">Newsletter</h4>
+                <p>
+                  Here, I focus on a range of items and features that we use in life without
+                  giving them a second thought.
+                </p>
+                <form action="{% url 'blog:newsletter' %}"
+                      method="post"
+                      class="subscription relative">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <input type="email"
+                           class="form-control"
+                           onfocus="this.placeholder = ''"
+                           onblur="this.placeholder = 'Enter email'"
+                           placeholder="Enter email"
+                           required=""
+                           name="email">
+                  </div>
+                  <button class="btn bb-btn" type="submit">Subscribe</button>
+                  <div class="mt-10 info"></div>
+                </form>
+              </aside>
+            </div>
+          </div>      
+          
+        </div>        
       </div>
-    </section>                
+    </section>
   </main>
- <!-- Blog Area End -->
- <!--? Search model Begin -->
+  <!-- Blog Area End -->
+  <!--? Search model Begin -->
   <div class="search-model-box">
-  <div class="h-100 d-flex align-items-center justify-content-center">
-    <div class="search-close-btn">+</div>
-    <form class="search-model-form">
-      <input type="text" id="search-input" placeholder="Searching key.....">
-    </form>
+    <div class="h-100 d-flex align-items-center justify-content-center">
+      <div class="search-close-btn">+</div>
+      <form class="search-model-form">
+        <input type="text" id="search-input" placeholder="Searching key.....">
+      </form>
+    </div>
   </div>
-</div>
-<!-- Search model end -->
+  <!-- Search model end -->
   <!-- Scroll Up -->
   <div id="back-top">
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
@@ -316,7 +321,7 @@
   <!-- Jquery Plugins, main Jquery -->
   <script src="{% static 'assets/js/plugins.js' %}"></script>
   <script src="{% static 'assets/js/main.js' %}"></script>
-  </body>
+</body>
 </html>
 <style>
 
@@ -325,5 +330,10 @@
      width: 100%;
     height: auto;
   }
-              </style>
+
+  .next-post-img{
+    width: 80px !important;
+    height: 80px !important;
+  }
+</style>
 {% endblock %}

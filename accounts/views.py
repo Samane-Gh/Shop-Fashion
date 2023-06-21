@@ -16,7 +16,8 @@ def login_view(request):
             #email = request.POST['email']
             user = EmailOrUsernameModelBackend.authenticate(username, password)
             if user is not None:
-                login(request, user)
+                # login(request, user)
+                login(request, user, backend='django.contrib.auth.backends.ModelBackend')
                 return redirect('/')    
         form = AuthenticationForm()
         context ={'form': form}    
