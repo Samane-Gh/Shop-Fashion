@@ -56,8 +56,7 @@ def blog_single(request,pid=None):
         contex = {'post': post,'next_post': next_post,'prev_post': prev_post,'comments': comments,'form': form}
         return render(request,'blog/blog-single.html',contex)
     else:
-        return HttpResponseRedirect(reverse('accounts:login'))
-    
+        return HttpResponseRedirect(reverse('accounts:login'))   
     
 def newsletter_view(request):
     if request.method == 'POST':
@@ -66,10 +65,7 @@ def newsletter_view(request):
             form.save()
             return HttpResponseRedirect('/')
     else:
-        return HttpResponseRedirect('/')
-        
-        
-        
+        return HttpResponseRedirect('/')      
         
 def blog_category(request,cat_name):
     posts = Post.objects.filter(status=1)
