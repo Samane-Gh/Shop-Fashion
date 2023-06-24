@@ -41,12 +41,12 @@
                                             <h2 class="blog-head" style="color: #2d2d2d;">{{post.title}}</h2>
                                         </a>
                                         <p>
-                                            {{post.content|safe}}
+                                            {{post.content.snippets|safe}}
                                         </p>
                                         <ul class="blog-info-link">
                                            <li><a href="{% url 'blog:single' pid=post.id  %}">
                                             {% for cat in post.Category.all %}
-											    <a href ="{% url 'blog:category' cat_name=cat.name %}"><h>{{cat.name}}</h></a>
+											    <a href ="{% url 'blog:category' cat_name=cat.name %}" >&#10146;<h>{{cat.name}}</h></a>
 										    {% endfor %}
                                            </a> </li>
                                              <li><a href="#"><i class="fa fa-eye"></i> {{post.counted_views}}</a></li>

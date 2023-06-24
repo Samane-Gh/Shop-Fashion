@@ -57,7 +57,7 @@
                     <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                       <div class="thumb">
                         <a href="#">
-                          <img class="img-fluid" src="{{ prev_post.image.url }}" alt="">
+                          <img class="img-fluid prev-post-img" src="{{ prev_post.image.url }}" alt="">
                         </a>
                       </div>
                       <div class="arrow">
@@ -86,7 +86,7 @@
                       </div>
                       <div class="thumb">
                         <a href="#">
-                          <img class="img-fluid next-post-img" src="{{ next_post.image.url }}" alt="">
+                          <img class="img-fluid next-post-img" src="{{ next_post.image.url }}"  alt="">
                         </a>
                       </div>
                     </div>
@@ -122,7 +122,7 @@
               </div>
             </div>
             <div class="comment-form">
-              <h4>Leave a Reply</h4>
+              <h4>Leave a Comment</h4>
               <form class="form-contact comment-form"
                     method="post"
                     action="{% url "blog:single" pid=post.id %}">
@@ -332,6 +332,10 @@
   }
 
   .next-post-img{
+    width: 80px !important;
+    height: 80px !important;
+  }
+  .prev-post-img{
     width: 80px !important;
     height: 80px !important;
   }
