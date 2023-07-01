@@ -48,19 +48,16 @@
                 <div class="container-fluid">
                     <div class="menu-wrapper d-flex align-items-center justify-content-between">
                         <div class="header-left d-flex align-items-center">
-                            <!-- Logo -->
-                            <div class="logo">
-                                <a href="index.html"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
-                            </div>
+
                             <!-- Main-menu -->
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{% url 'website:index' %}">Home</a></li> 
-                                        <li><a href="shop.html">shop</a></li>
-                                        <li><a href="{% url 'website:about' %}">About</a></li>
-                                        <li><a href="{% url 'blog:index' %}">Blog</a></li>
-                                        <li><a href="{% url 'website:contact' %}">Contact</a></li>
+                                        <li><a href="{% url 'website:index' %}"> خانه</a></li> 
+                                        <li><a href="shop.html">خرید</a></li>
+                                        <li><a href="{% url 'website:about' %}">درباره ما</a></li>
+                                        <li><a href="{% url 'blog:index' %}">بلاگ </a></li>
+                                        <li><a href="{% url 'website:contact' %}">تماس با ما </a></li>
                                     </ul>
                                 </nav>
                             </div>   
@@ -70,13 +67,13 @@
                             <div class="header-social d-none d-md-block">
                                 
                                 {% if request.user.is_authenticated %}
-                                       <span>Login as {{request.user.username}}</span>
+                                       <span> وارد شد {{request.user.username}}</span>
                                             &ensp;
                                             &emsp;
-                                       <span><a href="{% url 'accounts:logout' %}">Logout</a></span>
+                                       <span><a href="{% url 'accounts:logout' %}">خروج</a></span>
                                 {% else %}
-                                        <span><a href="{% url 'accounts:login' %}">Login</a></span>
-                                        <span><a href="{% url 'accounts:signup' %}">SignUp</a></span>
+                                        <span><a href="{% url 'accounts:login' %}">وارد شوید</a></span>
+                                        <span><a href="{% url 'accounts:signup' %}">ثبت نام</a></span>
                                     
                                 {% endif %}
                                   
