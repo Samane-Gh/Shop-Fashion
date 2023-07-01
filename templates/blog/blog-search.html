@@ -1,9 +1,9 @@
 {% load static %}
             <div class="single-sidebar-widget search-widget">
-                <form class="search-form" action="{% url 'blog:search' %}" method="get">
+                <form class="search-form" action="{% url 'blog:search' %}" method="get" dir="rtl" align="right">
                     <div class="form-group">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder='Search Keyword'
+                            <input type="text" class="form-control"dir="rtl"  placeholder='چی می خوای ؟'
                                             onfocus="this.placeholder = ''"
                                             onblur="this.placeholder = 'Search Keyword'" name="s"> 
 
@@ -13,6 +13,6 @@
                         </div>
                      </div>
                     <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                    type="submit">Search</button>
+                                    type="submit">پیدا کن </button>
                 </form> 
             </div>
