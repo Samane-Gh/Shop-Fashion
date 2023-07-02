@@ -3,6 +3,7 @@
 {% load blog_tags %}
 {% load humanize %}
 {% block contant %}
+
   <!DOCTYPE html>
   <main>
     <!-- breadcrumb Start-->
@@ -13,10 +14,10 @@
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb justify-content-center">
                 <li class="breadcrumb-item">
-                  <a href="{% url 'website:index' %}">Home</a>
+                  <a href="{% url 'website:index' %}">خانه</a>
                 </li>
                 <li class="breadcrumb-item">
-                  <a href="#">Blog Details</a>
+                  <a href="#">جزییات بلاگ</a>
                 </li>
               </ol>
             </nav>
@@ -35,7 +36,7 @@
                 <img class="img-fluid" src="{{ post.image.url }}" alt="">
               </div>
               <div class="blog_details">
-                <h2 style="color: #2d2d2d;">{{ post.title }}</h2>
+                <h2 style="color: #2d2d2d;"dir="rtl" align="right">{{ post.title }}</h2>
                 <ul class="blog-info-link mt-3 mb-4">
                   <li>
                     <a href="#"><i class="fa fa-user"></i> {{ post.auther }}</a>
@@ -66,7 +67,7 @@
                         <a href="#"><span class="lnr text-white ti-arrow-left"></span></a>
                       </div>
                       <div class="detials">
-                        <p>Prev Post</p>
+                        <p>پست قبلی </p>
                         {% if prev_post.id is not Null %}
                           <a href="{% url 'blog:single' pid=prev_post.id %}">
                             <h4>{{ prev_post }}</h4>
@@ -76,7 +77,7 @@
                     </div>
                     <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
                       <div class="detials">
-                        <p>Next Post</p>
+                        <p>پست بعدی</p>
                         {% if next_post.id is not Null %}
                           <a href="{% url 'blog:single' pid=next_post.id %}">
                             <h4>{{ next_post }}</h4>
@@ -97,8 +98,8 @@
                   </div>
                 </div>
               </div>
-              <div class="comments-area">
-                <h4>{% comments_count post.id %} Comments</h4>
+              <div class="comments-area"dir="rtl" align="right">
+                <h4>{% comments_count post.id %} نظر</h4>
                 {% for comment in comments %}
                   <div class="comment-list">
                     <div class="single-comment justify-content-between d-flex">
@@ -125,8 +126,8 @@
                 {% endfor %}
               </div>
             </div>
-            <div class="comment-form">
-              <h4>Leave a Comment</h4>
+            <div class="comment-form"dir="rtl" align="center">
+              <h4> شما هم نظر خود را بنویسید!</h4>
               <form class="form-contact comment-form"
                     method="post"
                     action="{% url "blog:single" pid=post.id %}">
@@ -148,7 +149,7 @@
                                maxlength="255"
                                required=""
                                id="id_name"
-                               placeholder="Name">
+                               placeholder="نام">
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -159,7 +160,7 @@
                                maxlength="254"
                                required=""
                                id="id_email"
-                               placeholder="Email">
+                               placeholder="ایمیل">
                       </div>
                     </div>
                   {% endif %}
@@ -173,7 +174,7 @@
                                 onblur="this.placeholder = 'Messege'"
                                 id="id_massage"
                                 required=""
-                                placeholder="Write Comment"></textarea>
+                                placeholder=" متن نظر"></textarea>
                     </div>
                   </div>
                   <div class="col-12">
@@ -181,7 +182,7 @@
                       <input class="form-control"
                              name="subject"
                              type="text"
-                             placeholder="Subject"
+                             placeholder="عنوان"
                              maxlength="255"
                              required=""
                              id="id_subject"
@@ -192,7 +193,7 @@
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn bb-btn">
-                  Post Comment</a>
+                  ثبت نظر </a>
                 </div>
               </form>
               {% if messages %}
@@ -214,12 +215,12 @@
             </div>
           </div>
           <div class="col-lg-4">
-            <div class="blog_right_sidebar">
-              <aside class="single_sidebar_widget search_widget">
+            <div class="blog_right_sidebar" dir="rtl" align="right">
+              <aside class="single_sidebar_widget search_widget" >
                 {% include 'blog/blog-search.html' %}
               </aside>
               <aside class="single_sidebar_widget post_category_widget">
-                <h4 class="widget_title" style="color: #2d2d2d;">Category</h4>
+                <h4 class="widget_title" style="color: #2d2d2d;">دسته بندی </h4>
                 <ul class="list cat-list">
                   <li>
                     <a href="#" class="d-flex">
@@ -228,8 +229,8 @@
                   </li>
                 </ul>
               </aside>
-              <aside class="single_sidebar_widget popular_post_widget">
-                <h3 class="widget_title" style="color: #2d2d2d;">Recent Post</h3>
+              <aside class="single_sidebar_widget popular_post_widget"dir="rtl" align="right">
+                <h3 class="widget_title" style="color: #2d2d2d;">آخرین پست ها</h3>
                 <div class="media post_item">
                   <div class="media-body">
                     <a href="#">
@@ -239,7 +240,7 @@
                 </div>
               </aside>
               <aside class="single_sidebar_widget tag_cloud_widget">
-                <h4 class="widget_title" style="color: #2d2d2d;">Tag Clouds</h4>
+                <h4 class="widget_title" style="color: #2d2d2d;">تگ ها </h4>
                 <ul class="list">
                   <li>
                     {% include 'blog/blog-tags.html' %}
@@ -247,16 +248,15 @@
                 </ul>
               </aside>
               <aside class="single_sidebar_widget instagram_feeds">
-                <h4 class="widget_title" style="color: #2d2d2d;">Advertisement</h4>
+                <h4 class="widget_title" style="color: #2d2d2d;">تبلیغات </h4>
                 <li>
                   <a href="#">{% include 'blog/blog-ads.html' %}</a>
                 </li>
               </aside>
-              <aside class="single_sidebar_widget newsletter_widget">
-                <h4 class="widget_title" style="color: #2d2d2d;">Newsletter</h4>
+              <aside class="single_sidebar_widget newsletter_widget" dir="rtl" align="right">
+                <h4 class="widget_title" style="color: #2d2d2d;">ثبت نام در خبرنامه</h4>
                 <p>
-                  Here, I focus on a range of items and features that we use in life without
-                  giving them a second thought.
+                  اولین نفری باشید که از جدیدترین محصولات ، جشنواره ها و فروش های ویژه ما مطلع میشوید .
                 </p>
                 <form action="{% url 'blog:newsletter' %}"
                       method="post"
@@ -267,11 +267,11 @@
                            class="form-control"
                            onfocus="this.placeholder = ''"
                            onblur="this.placeholder = 'Enter email'"
-                           placeholder="Enter email"
+                           placeholder="ایمیل خود را وارد کنید ."
                            required=""
                            name="email">
                   </div>
-                  <button class="btn bb-btn" type="submit">Subscribe</button>
+                  <button class="btn bb-btn" type="submit">ارسال</button>
                   <div class="mt-10 info"></div>
                 </form>
               </aside>

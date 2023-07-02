@@ -36,7 +36,7 @@
                                             <p></p>
                                         </a>
                                     </div>
-                                    <div class="blog_details">
+                                    <div class="blog_details"dir="rtl" align="right">
                                         <a class="d-inline-block" href="{% url 'blog:single' pid=post.id  %}">
                                             <h2 class="blog-head" style="color: #2d2d2d;">{{post.title}}</h2>
                                         </a>
@@ -51,7 +51,7 @@
                                            </a> </li>
                                              <li><a href="#"><i class="fa fa-eye"></i> {{post.counted_views}}</a></li>
                                              <li><a href="#"><i class="fa fa-user"></i> {{post.auther}}</a></li>
-                                            {% comment %} <li><a href="#"><i class="fa fa-comments"></i> {% comments_count post.id %}</a></li>  {% endcomment %}
+                                            <li><a href="#"><i class="fa fa-comments"></i> {% comments_count post.id %} &#10073;</a></li> 
                                         </ul>
                                     </div>
                                 </article>
@@ -93,7 +93,7 @@
                    
                                 {% include 'blog/blog-search.html' %}
                             </aside>
-                            <aside class="single_sidebar_widget post_category_widget">
+                            <aside class="single_sidebar_widget post_category_widget" dir="rtl" align="right">
                                 <h4 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="right">دسته بندی</h4>
                                 <ul class="list cat-list">
                                     <li>
@@ -131,9 +131,9 @@
                                         </a>
                                     </li>
                             </aside>
-                            <aside class="single_sidebar_widget newsletter_widget" >
-                                <h4 class="widget_title" style="color: #2d2d2d;" dir="rtl" align="right">ثبت نام در خبرنامه </h4>
-                                    <p dir="rtl" align="right">
+                            <aside class="single_sidebar_widget newsletter_widget" dir="rtl" align="right">
+                                <h4 class="widget_title" style="color: #2d2d2d;" >ثبت نام در خبرنامه </h4>
+                                    <p>
                                     اولین نفری باشید که از جدیدترین محصولات ، جشنواره ها و فروش های ویژه ما مطلع میشوید . 
                                     </p>
                                 <form action="{% url 'blog:newsletter' %}" method="post" class="subscription relative">
@@ -198,6 +198,11 @@
 <!-- Jquery Plugins, main Jquery -->	
 <script src="{% static 'assets/js/plugins.js' %}"></script>
 <script src="{% static 'assets/js/main.js' %}"></script>
+
+<!-- persian calender -->
+<script src="{% static 'persian-date.js' %}"></script>
+
+
 
 </body>
 </html>

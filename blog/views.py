@@ -80,7 +80,12 @@ def blog_search(request):
            posts = posts.filter(content__contains=request.GET.get('s')) 
         #print(request.GET.get('s'))   
     contex = {'posts': posts}
-    return render(request,'blog/blog-home.html',contex)    
+    return render(request,'blog/blog-home.html',contex)  
+
+from jalali_date import datetime2jalali, date2jalali
+
+def my_view(request):
+	jalali_join = datetime2jalali(request.user.date_joined)
 
 
 

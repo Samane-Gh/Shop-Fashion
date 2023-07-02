@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
 from django.db import models
+from django.utils import timezone
 
 
 
@@ -63,4 +64,12 @@ class Comment(models.Model):
     def __str__(self):
         return self.name
     
+class Calender(models.Model):
+    name = models.CharField(max_length=255)
+    date = models.DateTimeField(default=timezone.now)
+    date_time = models.DateTimeField(default=timezone.now)
     
+    class Meta:
+        pass
+    def __str__(self):
+        return self.name
