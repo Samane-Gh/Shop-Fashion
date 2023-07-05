@@ -1,5 +1,6 @@
 from django import forms
 from blog.models import Comment
+from blog.models import Newsletter
 from captcha.fields import CaptchaField
 from jalali_date.fields import JalaliDateField, SplitJalaliDateTimeField
 from jalali_date.widgets import AdminJalaliDateWidget, AdminSplitJalaliDateTime
@@ -10,6 +11,14 @@ class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields =['post','name','subject','email','massage']
+        
+  
+class NewsletterForm(forms.ModelForm):
+    
+    class Meta:
+        model = Newsletter
+        fields ='__all__'
+      
         
 class CalenderForm(forms.ModelForm):
     class Meta:
@@ -28,3 +37,4 @@ class CalenderForm(forms.ModelForm):
         self.fields['date_time'] = SplitJalaliDateTimeField(label=_('date time'), 
             widget=AdminSplitJalaliDateTime # required, for decompress DatetimeField to JalaliDateField and JalaliTimeField
         )
+        

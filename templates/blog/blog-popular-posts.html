@@ -8,11 +8,10 @@
             <div class="single-post-list d-flex flex-row align-items-center">
                 <div class="thumb">
                     <img class="img-fluid-1" src="{{ post.image.url }}"  widget = 80px; height = 80px; alt="">
-                    
                 </div>
                 <div class="details">
                     <a href="{% url 'blog:single' pid=post.id %}"><h6>{{post.title}}</h6></a>
-                    <p>{{post.published_date|to_jalali}}</p>
+                    <p>{{post.published_date|naturaltime}}</p>
                 </div>
             </div>
         {% endfor %}														

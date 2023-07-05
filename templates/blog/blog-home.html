@@ -2,6 +2,7 @@
 {% load static %}
 {% block contant%}
 {% load blog_tags %}
+{% load jalali_tags %}
 <!doctype html>
     <main>
         <!-- breadcrumb Start-->
@@ -32,13 +33,13 @@
                                     <div class="blog_item_img">
                                         <img class="card-img rounded-0" src="{{post.image.url}}" alt="">
                                         <a href="#" class="blog_item_date">
-                                            <h3>{{post.published_date|date:" d M"}}</h3>
+                                            <h3>{{post.published_date|to_jalali:'%Y / %m '}}</h3>
                                             <p></p>
                                         </a>
                                     </div>
                                     <div class="blog_details"dir="rtl" align="right">
                                         <a class="d-inline-block" href="{% url 'blog:single' pid=post.id  %}">
-                                            <h2 class="blog-head" style="color: #2d2d2d;">{{post.title}}</h2>
+                                            <h2 class="blog-head" style="color: #2d2d2d;"dir="rtl" align="right">{{post.title}}</h2>
                                         </a>
                                         <p>
                                             {{post.content.snippets}}
@@ -95,7 +96,7 @@
                                 {% include 'blog/blog-search.html' %}
                             </aside>
                             <aside class="single_sidebar_widget post_category_widget" dir="rtl" align="right">
-                                <h4 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="right">دسته بندی</h4>
+                                <h4 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="center">دسته بندی</h4>
                                 <ul class="list cat-list">
                                     <li>
                                         <a href="#" class="d-flex">
@@ -106,17 +107,17 @@
                                 </ul>
                             </aside>
                             <aside class="single_sidebar_widget popular_post_widget"dir="rtl" align="right">
-                                <h3 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="right">آخرین مطالب </h3>
+                                <h3 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="center">پربازدید ها </h3>
                                 <div class="media post_item">
                                     <div class="media-body">
                                         <a href="#">
-                                            <h3 style="color: #2d2d2d;">{% latestposts %}</h3>
+                                            <h3 style="color: #2d2d2d;">{% popularposts %}</h3>
                                         </a>
                                     </div>
                                 </div>
                             </aside>
                             <aside class="single_sidebar_widget tag_cloud_widget">
-                                <h4 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="right">تگ ها</h4>
+                                <h4 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="center">تگ ها</h4>
                                 <ul class="list">
                                     <li>
                                         {% include 'blog/blog-tags.html' %}
@@ -125,7 +126,7 @@
                             </aside>
 
                             <aside class="single_sidebar_widget instagram_feeds">
-                                <h4 class="widget_title" style="color: #2d2d2d;" dir="rtl" align="right"> تبلیغات </h4>
+                                <h4 class="widget_title" style="color: #2d2d2d;" dir="rtl" align="center"> تبلیغات </h4>
                                     <li>
                                         <a href="#">
                                             {% include 'blog/blog-ads.html' %}
@@ -201,9 +202,9 @@
 <script src="{% static 'assets/js/main.js' %}"></script>
 
 <!-- persian calender -->
-<script src="{% static 'persian-date.js' %}"></script>
-
-
+<script src="{% static 'js/persian-date.js' %}"></script>
+<link rel="stylesheet" href="{% static 'jalali_date/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
+<script src="{% static 'jalali_date/js/django_jalali.min.js' %}"></script>
 
 </body>
 </html>

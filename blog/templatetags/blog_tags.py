@@ -13,8 +13,8 @@ def function(pid):
     return Comment.objects.filter(post=pid,approved=True).count()
     
 @register.inclusion_tag('blog/blog-popular-posts.html')
-def latestposts(arg=3):
-    posts = Post.objects.filter(status=1).order_by('published_date')[:arg]
+def popularposts(arg=3):
+    posts = Post.objects.order_by('-counted_views')[:arg]
     return {'posts': posts}
 
 @register.inclusion_tag('blog/blog-post-categories.html')

@@ -36,7 +36,7 @@
                 <img class="img-fluid" src="{{post.image.url}}" alt="">
               </div>
               <div class="blog_details">
-                <h2 style="color: #2d2d2d;">{{post.title}}</h2>
+                <h2 style="color: #2d2d2d;"dir="rtl" align="right">{{post.title}}</h2>
                 <ul class="blog-info-link mt-3 mb-4">
                   <li>
                     <a href="#"><i class="fa fa-user"></i> {{post.auther}}</a>
@@ -229,7 +229,7 @@
               <aside class="single_sidebar_widget search_widget" >
                 {% include 'blog/blog-search.html' %}
               </aside>
-              <aside class="single_sidebar_widget post_category_widget">
+              <aside class="single_sidebar_widget post_category_widget"dir="rtl" align="center">
                 <h4 class="widget_title" style="color: #2d2d2d;">دسته بندی </h4>
                 <ul class="list cat-list">
                   <li>
@@ -239,17 +239,17 @@
                   </li>
                 </ul>
               </aside>
-              <aside class="single_sidebar_widget popular_post_widget"dir="rtl" align="right">
-                <h3 class="widget_title" style="color: #2d2d2d;">آخرین پست ها</h3>
+              <aside class="single_sidebar_widget popular_post_widget"dir="rtl" align="center">
+                <h3 class="widget_title" style="color: #2d2d2d;">پربازدید ها</h3>
                 <div class="media post_item">
                   <div class="media-body">
                     <a href="#">
-                      <h3 style="color: #2d2d2d;">{% latestposts %}</h3>
+                      <h3 style="color: #2d2d2d;">{% popularposts %}</h3>
                     </a>
                   </div>
                 </div>
               </aside>
-              <aside class="single_sidebar_widget tag_cloud_widget">
+              <aside class="single_sidebar_widget tag_cloud_widget"dir="rtl" align="center">
                 <h4 class="widget_title" style="color: #2d2d2d;">تگ ها </h4>
                 <ul class="list">
                   <li>
@@ -257,7 +257,7 @@
                   </li>
                 </ul>
               </aside>
-              <aside class="single_sidebar_widget instagram_feeds">
+              <aside class="single_sidebar_widget instagram_feeds"dir="rtl" align="center">
                 <h4 class="widget_title" style="color: #2d2d2d;">تبلیغات </h4>
                 <li>
                   <a href="#">{% include 'blog/blog-ads.html' %}</a>

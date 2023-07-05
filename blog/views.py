@@ -7,8 +7,9 @@ from django.utils import timezone
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from blog.forms import CommentForm
 from django.urls import reverse
-from website.forms import NewsletterForm
+from blog.forms import NewsletterForm
 from jalali_date import datetime2jalali, date2jalali
+
 
 
 # Create your views here.
@@ -89,10 +90,10 @@ def blog_search(request):
 
 
 
+from django.template.defaultfilters import date
+
 def my_view(request):
-	jalali_join = datetime2jalali(request.user.date_joined)
-
-
+	jalali_join1 = (datetime2jalali(request.user.date_joined)).strftime('%B')
 
     
 
