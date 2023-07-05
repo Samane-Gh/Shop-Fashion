@@ -8,6 +8,7 @@ from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 from blog.forms import CommentForm
 from django.urls import reverse
 from website.forms import NewsletterForm
+from jalali_date import datetime2jalali, date2jalali
 
 
 # Create your views here.
@@ -32,7 +33,7 @@ def blog_view(request,**kwargs):
     return render(request,'blog/blog-home.html',contex)
 
 
-def blog_single(request,pid=None):
+def blog_single(request,pid=None):    
     post = get_object_or_404(Post, id = pid)
     if request.method == 'POST':
         form = CommentForm(request.POST)
@@ -40,11 +41,7 @@ def blog_single(request,pid=None):
             form.save()
             messages.add_message(request,messages.SUCCESS,'your comment submited successfully')
         else:
-           messages.add_message(request,messages.ERROR,'yourc comment did not submited successfully') 
-    # else:      
-    #     if pid is None:
-    #         contex = {'post': {}}
-    #         return render(request,'blog/blog-single.html',contex)        
+           messages.add_message(request,messages.ERROR,'your comment did not submited successfully')        
     post = Post.objects.get(id =pid)
     post.counted_views +=1
     post.save()
@@ -55,6 +52,14 @@ def blog_single(request,pid=None):
         form = CommentForm()
         contex = {'post': post,'next_post': next_post,'prev_post': prev_post,'comments': comments,'form': form}
         return render(request,'blog/blog-single.html',contex)
+    elif post.login_required:
+        if request.user.is_authenticated:
+            comments = Comment.objects.filter(post=post.id , approved=True)
+            form = CommentForm()
+            contex = {'post': post,'next_post': next_post,'prev_post': prev_post,'comments': comments,'form': form}
+            return render(request,'blog/blog-single.html',contex)
+        else:
+            return HttpResponseRedirect(reverse('accounts:login')) 
     else:
         return HttpResponseRedirect(reverse('accounts:login'))   
     
@@ -82,7 +87,7 @@ def blog_search(request):
     contex = {'posts': posts}
     return render(request,'blog/blog-home.html',contex)  
 
-from jalali_date import datetime2jalali, date2jalali
+
 
 def my_view(request):
 	jalali_join = datetime2jalali(request.user.date_joined)

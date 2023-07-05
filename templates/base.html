@@ -1,6 +1,6 @@
 {% load static %}
 {% load static compress %}
-<!doctype html>
+
 <html class="no-js" lang="zxx">
 <head>
     <meta charset="utf-8">
@@ -46,7 +46,7 @@
         <div class="header-area ">
             <div class="main-header header-sticky">
                 <div class="container-fluid">
-                    <div class="menu-wrapper d-flex align-items-center justify-content-between">
+                    <div class="menu-wrapper d-flex align-items-center justify-content-between" dir="rtl" align="right">
                         <div class="header-left d-flex align-items-center">
 
                             <!-- Main-menu -->
@@ -67,7 +67,7 @@
                             <div class="header-social d-none d-md-block">
                                 
                                 {% if request.user.is_authenticated %}
-                                       <span> وارد شد {{request.user.username}}</span>
+                                       <span>{{request.user.username}}&ensp;وارد شد </span>
                                             &ensp;
                                             &emsp;
                                        <span><a href="{% url 'accounts:logout' %}">خروج</a></span>
@@ -76,6 +76,7 @@
                                         <span><a href="{% url 'accounts:signup' %}">ثبت نام</a></span>
                                     
                                 {% endif %}
+                                
                                   
                             </div> 
                             <!-- Search Box -->

@@ -33,17 +33,17 @@
           <div class="col-lg-8 posts-list">
             <div class="single-post">
               <div class="feature-img">
-                <img class="img-fluid" src="{{ post.image.url }}" alt="">
+                <img class="img-fluid" src="{{post.image.url}}" alt="">
               </div>
               <div class="blog_details">
-                <h2 style="color: #2d2d2d;"dir="rtl" align="right">{{ post.title }}</h2>
+                <h2 style="color: #2d2d2d;">{{post.title}}</h2>
                 <ul class="blog-info-link mt-3 mb-4">
                   <li>
-                    <a href="#"><i class="fa fa-user"></i> {{ post.auther }}</a>
+                    <a href="#"><i class="fa fa-user"></i> {{post.auther}}</a>
                   </li>
                   {% comment %} <li><a href="#"><i class="fa fa-calendar-full"></i> {{post.published_date|date:"d M Y"}}</a></li> {% endcomment %}
                   <li>
-                    <a href="#"><i class="fa fa-eye"></i> {{ post.counted_views }}</a>
+                    <a href="#"><i class="fa fa-eye"></i> {{post.counted_views}}</a>
                   </li>
                   <li>
                     <a href="#"><i class="fa fa-comment"></i> {% comments_count post.id %}</a>
@@ -57,16 +57,18 @@
                   <div class="row">
                     <div class="col-lg-6 col-md-6 col-12 nav-left flex-row d-flex justify-content-start align-items-center">
                       <div class="thumb">
-                        <a href="#">
-                          <img class="img-fluid prev-post-img"
-                               src="{{ prev_post.image.url }}"
-                               alt="">
-                        </a>
+                        {% if prev_post.id is not Null %}
+                          <a href="{% url 'blog:single' pid=prev_post.id %}">
+                            <img class="img-fluid prev-post-img"  
+                            src="{{ prev_post.image.url }}" 
+                            alt=""> 
+                          </a>
+                          {% endif %}
                       </div>
                       <div class="arrow">
                         <a href="#"><span class="lnr text-white ti-arrow-left"></span></a>
                       </div>
-                      <div class="detials">
+                      <div class="detials"dir="rtl" align="right">
                         <p>پست قبلی </p>
                         {% if prev_post.id is not Null %}
                           <a href="{% url 'blog:single' pid=prev_post.id %}">
@@ -75,8 +77,9 @@
                         {% endif %}
                       </div>
                     </div>
+
                     <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center">
-                      <div class="detials">
+                      <div class="detials"dir="rtl" align="right">
                         <p>پست بعدی</p>
                         {% if next_post.id is not Null %}
                           <a href="{% url 'blog:single' pid=next_post.id %}">
@@ -88,11 +91,13 @@
                         <a href="#"><span class="lnr text-white ti-arrow-right"></span></a>
                       </div>
                       <div class="thumb">
-                        <a href="#">
-                          <img class="img-fluid next-post-img"
-                               src="{{ next_post.image.url }}"
-                               alt="">
-                        </a>
+                        {% if next_post.id is not Null %}
+                          <a href="{% url 'blog:single' pid=next_post.id %}">
+                            <img class="img-fluid next-post-img"
+                                src="{{ next_post.image.url }}"
+                                alt="">
+                          </a>
+                        {% endif %}
                       </div>
                     </div>
                   </div>
@@ -108,13 +113,18 @@
                           <img src="{% static 'assets/img/blog/comment.png' %}" alt="">
                         </div>
                         <div class="desc">
-                          <p class="comment">{{ comment.massage }}</p>
+                          <p href="#">{{ comment.name }}</p>
+                          
                           <div class="d-flex justify-content-between">
                             <div class="d-flex align-items-center">
                               <h5>
-                                <a href="#">{{ comment.name }}</a>
+                                <li class="comment">{{ comment.massage }}
+                                &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                <class="date">{{ comment.created_date}}</li>
                               </h5>
-                              <p class="date">{{ comment.created_date}}</p>
+                              
                             </div>
                           </div>
                         </div>

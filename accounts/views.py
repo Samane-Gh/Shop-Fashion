@@ -4,10 +4,12 @@ from django.contrib.auth.forms import AuthenticationForm ,UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from accounts.forms import NewUserForm
-from accounts.models import EmailOrUsernameModelBackend 
+from accounts.models import EmailOrUsernameModelBackend
+from blog.models import Post 
 
 # Create your views here.
 def login_view(request):
+    
     if not request.user.is_authenticated:
         if request.method == 'POST':
             form = AuthenticationForm(request=request, data=request.POST)
@@ -22,8 +24,9 @@ def login_view(request):
         form = AuthenticationForm()
         context ={'form': form}    
         return render(request, 'accounts/login.html',context)
-    else:
-        return redirect('/')
+    else: 
+        return redirect('/blog')
+    
     
 @login_required
 def logout_view(request):

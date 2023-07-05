@@ -1,6 +1,7 @@
 
 from django.urls import path
 from website.views import *
+from blog.views import *
 
 app_name ='website'
 
