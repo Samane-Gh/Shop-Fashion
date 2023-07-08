@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block contant%}
+{% block contant %}
 {% load blog_tags %}
 <!doctype html>
-
-    <!-- header end -->
     <main>
         <!--? Hero Area Start-->
         <div class="container-fluid">
@@ -45,7 +43,7 @@
                                     <!-- Hero Caption -->
                                     <div class="hero__caption">
                                         <h1> <br> <br> </h1>
-                                        <a href="shop.html" class="btn">بخرید</a>
+                                        <a href="{% url 'website:shop' %}" class="btn">بخرید</a>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +57,7 @@
                                     <!-- Hero Caption -->
                                     <div class="hero__caption">
                                         <h1> <br> <br> </h1>
-                                        <a href="shop.html" class="btn">بخرید </a>
+                                        <a href="{% url 'website:shop' %}" class="btn">بخرید </a>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +71,7 @@
                                     <!-- Hero Caption -->
                                     <div class="hero__caption">
                                         <h1> <br> <br> </h1>
-                                        <a href="shop.html" class="btn">بخرید</a>
+                                        <a href="{% url 'website:shop' %}" class="btn">بخرید</a>
                                     </div>
                                 </div>
                             </div>

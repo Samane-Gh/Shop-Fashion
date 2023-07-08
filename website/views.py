@@ -33,5 +33,5 @@ def test(request):
         else:
             return HttpResponse('Not valid')
     form = ContactForm()
-    return render(request,'test.html',{'form': form})
+    return render(request,'shop.html',{'form': form})
 # Create your views here.

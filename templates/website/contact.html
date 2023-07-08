@@ -36,7 +36,7 @@
                         <form class="form-form form-contact" action="{% url 'website:contact' %}" method="POST">
                             {% csrf_token %}
                             <div class="row">
-                                <div class="col-12">
+                                <div class="col-12" style="margin-bottom: 10px">
                                     <div class="form-group">
                                         <textarea class="form-control w-100" name="massage" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter massage'" placeholder=" متن پیام"></textarea>
                                     </div>
@@ -113,6 +113,12 @@
 <div id="back-top" >
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
+<style>
+
+    .col-6{
+        margin-top:20px !important;
+    }
+</style>
 
 
 <!-- JS here -->

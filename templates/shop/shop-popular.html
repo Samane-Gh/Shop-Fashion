@@ -1,0 +1,30 @@
+{% load static %}
+{% load humanize %}
+{% load jalali_tags %}
+<div class="single-sidebar-widget popular-post-widget">
+    <h4 class="popular-title"></h4>
+    <div class="popular-post-list">
+        {% for product in products %}
+            <div class="single-post-list d-flex flex-row align-items-center">
+                <div class="thumb">
+                    <img class="img-fluid-1" src="{{ post.image.url }}"  height = 80px,width=80px; alt="">
+                </div>
+                <div class="details">
+                    <a href="{% url 'shop:details' pid=product.id %}"><h6>{{product.title}}</h6></a>
+                    <p>{{product.published_date|naturaltime}}</p>
+                </div>
+            </div>
+        {% endfor %}														
+    </div>
+</div>
+<style>
+   .thumb { margin-bottom: 20px;
+            margin-left :12px; }
+    .details { 
+        margin-left: 10px;
+    }
+    .details h6 {
+        font-size: 18px;
+    } 
+    
+</style>

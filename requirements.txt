@@ -12,3 +12,4 @@ django-debug-toolbar
 django-rest-passwordreset
 django-hitcount
 django-jalali-date 
+django-admin-persian-fonts

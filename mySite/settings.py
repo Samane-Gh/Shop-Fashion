@@ -29,6 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 INSTALLED_APPS = [
     'multi_captcha_admin',
+    'admin_persian',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'taggit',
     'blog',
+    'shop',
     'django.contrib.humanize',
     'accounts',
     'django_rest_passwordreset',

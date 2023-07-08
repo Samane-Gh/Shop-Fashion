@@ -3,6 +3,8 @@
 {% block contant%}
 {% load blog_tags %}
 {% load jalali_tags %}
+{% load static compress %}
+
 <!doctype html>
     <main>
         <!-- breadcrumb Start-->
@@ -155,57 +157,66 @@
         </section>
         <!-- Blog Area End -->
     </main>
+    
 
 <!-- Scroll Up -->
 <div id="back-top" >
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
 </div>
-
+{% compress js %}
 <!-- JS here -->
 <!-- Jquery, Popper, Bootstrap -->
 <script src="{% static 'assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
 <script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
 <script src="{% static 'assets/js/popper.min.js' %}"></script>
 <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-
+{% endcompress %}
+{% compress js %}
 <!-- Slick-slider , Owl-Carousel ,slick-nav -->
 <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
 <script src="{% static 'assets/js/slick.min.js' %}"></script>
 <script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>
-
+{% endcompress %}
+{% compress js %}
 <!-- One Page, Animated-HeadLin, Date Picker -->
 <script src="{% static 'assets/js/wow.min.js' %}"></script>
 <script src="{% static 'assets/js/animated.headline.js' %}"></script>
 <script src="{% static 'assets/js/jquery.magnific-popup.js' %}"></script>
 <script src="{% static 'assets/js/gijgo.min.js' %}"></script>
-
+{% endcompress %}
+{% compress js %}
 <!-- Nice-select, sticky,Progress -->
 <script src="{% static 'assets/js/jquery.nice-select.min.js' %}"></script>
 <script src="{% static 'assets/js/jquery.sticky.js' %}"></script>
 <script src="{% static 'assets/js/jquery.barfiller.js' %}"></script>
-
+{% endcompress %}
+{% compress js %}
 <!-- counter , waypoint,Hover Direction -->
 <script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
 <script src="{% static 'assets/js/waypoints.min.js' %}"></script>
 <script src="{% static 'assets/js/jquery.countdown.min.js' %}"></script>
 <script src="{% static 'assets/js/hover-direction-snake.min.js' %}"></script>
-
+{% endcompress %}
+{% compress js %}
 <!-- contact js -->
 <script src="{% static 'assets/js/contact.js' %}"></script>
 <script src="{% static 'assets/js/jquery.form.js' %}"></script>
 <script src="{% static 'assets/js/jquery.validate.min.js' %}"></script>
 <script src="{% static 'assets/js/mail-script.js' %}"></script>
 <script src="{% static 'assets/js/jquery.ajaxchimp.min.js' %}"></script>
-
+{% endcompress %}
+{% compress js %}
 <!-- Jquery Plugins, main Jquery -->	
 <script src="{% static 'assets/js/plugins.js' %}"></script>
 <script src="{% static 'assets/js/main.js' %}"></script>
-
+{% endcompress %}
+{% compress js %}
 <!-- persian calender -->
 <script src="{% static 'js/persian-date.js' %}"></script>
 <link rel="stylesheet" href="{% static 'jalali_date/jquery.ui.datepicker.jalali/themes/base/jquery-ui.min.css' %}">
 <script src="{% static 'jalali_date/js/django_jalali.min.js' %}"></script>
-
+{% endcompress %}
 </body>
 </html>
 {% endblock %}
+

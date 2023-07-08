@@ -20,10 +20,4 @@ urlpatterns = [
     path('rss/feed/', LatestEntriesFeed()),
     path('newsletter',newsletter_view,name='newsletter'),
     
-
-    
-    #path('test',test,name='test'),
-   
-    
-    
 ] 

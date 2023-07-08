@@ -17,3 +17,10 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
+# STATIC_ROOT = '/home/goshopfr/public_html/static'
+# MEDIA_ROOT ='/home/goshopfr/public_html/media'
+# STATICFILES_DIRS = [
+#     BASE_DIR / "statics",
+# ]

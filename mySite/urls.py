@@ -37,6 +37,7 @@ urlpatterns = [
     #path('accounts/',include('accounts.urls')),
     path("accounts/", include("django.contrib.auth.urls")),
     path("accounts/", include("accounts.urls")),
+    path('shop/', include(('shop.urls', 'shop'), namespace='shop')),
     path('summernote/',include('django_summernote.urls')),
     path('sitemap.xml',sitemap,{'sitemaps':sitemaps},
          name ='django.contrib.sitemaps.views.sitemap'),
