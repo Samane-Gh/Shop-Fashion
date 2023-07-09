@@ -47,7 +47,7 @@ class Newsletter(models.Model):
         return self.email
     
 class Comment(models.Model):
-    Product = models.ForeignKey(Product,on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     email = models.EmailField()
     subject = models.CharField(max_length=255)

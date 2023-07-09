@@ -10,7 +10,7 @@ from blog.forms import CommentForm
 from django.urls import reverse
 from blog.forms import NewsletterForm
 from jalali_date import datetime2jalali, date2jalali
-
+from django.template.defaultfilters import date
 
 
 # Create your views here.
@@ -36,7 +36,7 @@ def shop_view(request,**kwargs):
 
 
 def shop_details(request,pid=None):    
-    product = get_object_or_404(product, id = pid)
+    product = get_object_or_404(Product, id = pid)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -53,13 +53,13 @@ def shop_details(request,pid=None):
         comments = Comment.objects.filter(product=product.id , approved=True)
         form = CommentForm()
         contex = {'product': product,'next_product': next_product,'prev_product': prev_product,'comments': comments,'form': form}
-        return render(request,'blog/blog-single.html',contex)
+        return render(request,'shop/details.html',contex)
     elif product.login_required:
         if request.user.is_authenticated:
             comments = Comment.objects.filter(product=product.id , approved=True)
             form = CommentForm()
             contex = {'product': product,'next_product': next_product,'prev_product': prev_product,'comments': comments,'form': form}
-            return render(request,'blog/blog-single.html',contex)
+            return render(request,'shop/details.html',contex)
         else:
             return HttpResponseRedirect(reverse('accounts:login')) 
     else:
@@ -78,7 +78,7 @@ def shop_category(request,cat_name):
     products = Product.objects.filter(status=1)
     products = products.filter(Category__name=cat_name)
     contex ={'products': products}
-    return render(request,'product/product-home.html',contex)
+    return render(request,'shop/shop-home.html',contex)
 
 def shop_search(request):
     products = Product.objects.filter(status=1)
@@ -89,9 +89,6 @@ def shop_search(request):
     contex = {'products': products}
     return render(request,'shop/shop-home.html',contex)  
 
-
-
-from django.template.defaultfilters import date
 
 def my_view(request):
 	jalali_join1 = (datetime2jalali(request.user.date_joined)).strftime('%B')
