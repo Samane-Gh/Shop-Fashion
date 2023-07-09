@@ -53,11 +53,11 @@
                                 </ul>
                             </aside>
                             <aside class="single_sidebar_widget popular_post_widget"dir="rtl" align="right">
-                                <h3 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="center">پربازدید ها </h3>
+                                <h3 class="widget_title" style="color: #2d2d2d;"dir="rtl" align="center">آخرین ها</h3>
                                 <div class="media post_item">
                                     <div class="media-body">
                                         <a href="#">
-                                            <h3 style="color: #2d2d2d;">{% popularproducts %}</h3>
+                                            <h3 style="color: #2d2d2d;">{% latest_products %}</h3>
                                         </a>
                                     </div>
                                 </div>
@@ -75,29 +75,57 @@
                                                 <img src="{{product.image.url}}" alt="">
                                                 <div class="favorit-items">
                                                     <!-- <span class="flaticon-heart"></span> -->
-                                                    <img src="{{product.image.url}}" alt="">
+                                                    <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
                                                 </div>
                                             </div>
                                             <div class="popular-caption">
                                             <h3><a href="product_details.html">{{product.title}}</a></h3>
                                             <div class="rating mb-10">
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
                                             </div>
-                                            <span>$ {{product.price}}</span>
+                                            <li>تومان {{product.price}}</li>
                                         </div>
-                                    </div>
+                                    </div> 
+                                </div>
                                 {% endfor%}
+                            </div>
+                            </div>
+                        </div>
+
     
 </div>
 </div>
 <!-- Button -->
 <div class="row justify-content-center">
-    <div class="room-btn mt-20">
-        <a href="catagori.html" class="border-btn">بارگذاری بیشتر</a>
+    <div class="room-btn mt-20"dir="rtl" align="right">
+        <nav class="blog-pagination justify-content-center d-flex"dir="rtl" align="right">
+            <ul class="pagination">
+                {% if product.has_previous %}
+                    <li class="page-item">
+                        <a href="?page={{ product.previous_page_number }}" class="page-link" aria-label="Previous">
+                            <i class="ti-angle-left"></i>
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% for i in products.paginator.page_range %}
+                        {% if products.number == i %}
+                            <li class="page-item active">
+                                <a href="?page={{i}}" class="page-link">{{i}}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item ">
+                                <a href="?page={{i}}" class="page-link">{{i}}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% if products.has_next %}                
+                    <li class="page-item">
+                        <a href="?page={{ products.next_page_number }}" class="page-link" aria-label="Next">
+                            <i class="ti-angle-right" ></i>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
     </div>
 </div>
 </div>
@@ -111,57 +139,35 @@
 <div class="popular-items">
     <div class="container-fluid">
         <div class="row">
+            {% popularproducts %}
             <div class="col-lg-3 col-md-6 col-sm-6">
+                
                 <div class="single-popular-items mb-50 text-center">
                     <div class="popular-img">
-                        <img src="{% static 'assets/img/gallery/popular1.png' %}" alt="">
+                        
+                        {% comment %} <img src="{% static 'assets/img/gallery/popular1.png' %}" alt=""> {% endcomment %}
                         <div class="img-cap">
-                            <span>Glasses</span>
+                            <span>اکسسوری</span>
                         </div>
                         <div class="favorit-items">
-                            <a href="{% url 'website:shop' %}" class="btn">Shop Now</a>
+                            <a href="{% url 'shop:index'%}" class="btn">بخرید</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-popular-items mb-50 text-center">
-                    <div class="popular-img">
-                        <img src="{% static 'assets/img/gallery/popular2.png' %}" alt="">
-                        <div class="img-cap">
-                            <span>Watches</span>
-                        </div>
-                        <div class="favorit-items">
-                         <a href="shop.html" class="btn">Shop Now</a>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="single-popular-items mb-50 text-center">
-                <div class="popular-img">
-                    <img src="{% static 'assets/img/gallery/popular3.png' %}" alt="">
-                    <div class="img-cap">
-                        <span>Jackets</span>
-                    </div>
-                    <div class="favorit-items">
-                     <a href="shop.html" class="btn">Shop Now</a>
-                 </div>
-             </div>
-         </div>
-     </div>
+{% comment %}            
      <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="single-popular-items mb-50 text-center">
             <div class="popular-img">
                 <img src="{% static 'assets/img/gallery/popular4.png' %}" alt="">
                 <div class="img-cap">
-                    <span>Clothes</span>
+                    <span>لباس</span>
                 </div>
                 <div class="favorit-items">
-                 <a href="shop.html" class="btn">Shop Now</a>
+                 <a href="{% url 'shop:index'%}" class="btn">بخرید</a>
              </div>
          </div>
-     </div>
+     </div> {% endcomment %}
  </div>
 </div>
 </div>

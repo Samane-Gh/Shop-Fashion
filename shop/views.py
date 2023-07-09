@@ -23,7 +23,7 @@ def shop_view(request,**kwargs):
     #     products = products.filter(color__username =kwargs['color_name'])  
     #     if kwargs.get('size_name') != None: 
     #         products = products.filter(size__name__in =kwargs['size_name'])
-    products = Paginator(products,3) 
+    products = Paginator(products,6) 
     try: 
         page_number = request.GET.get('page')
         products = products.get_page(page_number)

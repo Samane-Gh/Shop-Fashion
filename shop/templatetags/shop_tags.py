@@ -13,7 +13,7 @@ def function(pid):
     return Comment.objects.filter(product=pid,approved=True).count()
     
 @register.inclusion_tag('shop/shop-popular.html')
-def popularproducts(arg=3):
+def popularproducts(arg=4):
     products = Product.objects.order_by('-counted_views')[:arg]
     return {'products': products}
 
@@ -27,7 +27,7 @@ def productcategories():
     return {'categories': cat_dict}
 
 @register.inclusion_tag('shop/shop-arrivals.html')
-def latest_products(arg=6):
-    products = Product.objects.filter(status=1).order_by('published_date')[:arg]
+def latest_products(arg=3):
+    products = Product.objects.filter(status=1).order_by('-published_date')[:arg]
     return {'products': products }
 

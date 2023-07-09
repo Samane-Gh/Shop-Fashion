@@ -1,40 +1,30 @@
 {% load static %}
-
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-9">
-                <div class="title text-center">
-                    <h1 class="mb-10">Latest from Our Blog</h1>
-                    
+{% load humanize %}
+{% load jalali_tags %}
+<div class="single-sidebar-widget popular-post-widget">
+    <h4 class="popular-title"></h4>
+    <div class="popular-post-list">
+        {% for product in products %}
+            <div class="single-post-list d-flex flex-row align-items-center">
+                <div class="thumb">
+                    <img class="img-fluid-1" src="{{ product.image.url }}" width="80px" height="80px" alt="">
+                </div>
+                <div class="details">
+                    <a href="{% url 'shop:details' pid=product.id %}"><h6>{{product.title}}</h6></a>
+                    <p>{{product.published_date|naturaltime}}</p>
                 </div>
             </div>
-        </div>							
-        <div class="row">
-            <div class="active-recent-blog-carusel">
-            {% for product in products %}
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{{product.image.url}}" width="80px" height="80px" alt="">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            {% comment %} <ul>
-                                <li>
-                                    <a href="#">{{post.cat}}</a>
-                                </li>
-                                <li>
-                                    <a href="#">Life Style</a>
-                                </li>											
-                            </ul> {% endcomment %}
-                        </div>
-                        <a href="#"><h4 class="title">{{product.title}}</h4></a>
-                        <p>
-                            {{product.snippets}}
-                        </p>
-                        <h6 class="date">{{product.published_date|date:"d M Y"}}</h6>
-                    </div>	
-                </div>														
-            {% endfor %}
-            </div>
-        </div>
-    </div>	
+        {% endfor %}														
+    </div>
+</div>
+<style>
+   .thumb { margin-bottom: 20px;
+            margin-left :12px; }
+    .details { 
+        margin-left: 10px;
+    }
+    .details h6 {
+        font-size: 18px;
+    } 
+    
+</style> 
