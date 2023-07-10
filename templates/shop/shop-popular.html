@@ -4,30 +4,11 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-60 col-lg-9">
-                <div class="title text-center">
-                    <h1 class="mb-10"> محبوب ترین</h1>
-                    
+                <div class="section-tittle mb-60 text-center wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s; animation-name: fadeInUp;">
+                    <h2>محبوب ترین</h2>
                 </div>
             </div>
         </div>
-        {% comment %} 							
-        <div class="row">
-            <div class="active-recent-blog-carusel">
-            {% for product in products %}
-                <div class="single-recent-blog-post item">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{{product.image.url}}" width="80px" height="80px" alt="">
-                
-                    <div class="details">
-                        <div href="{% url 'shop:details' pid=product.id %}"><h6>{{product.title}}</h6></div>
-                            <p>{{product.published_date|naturaltime}}</p>
-                    </div>	
-                    </div>
-                </div>														
-            {% endfor %}
-            </div>
-        </div>
-    </div>	 {% endcomment %}
     <div class="row">
         {% for product in products %}
             <div class="col-lg-3 col-md-6 col-sm-6">

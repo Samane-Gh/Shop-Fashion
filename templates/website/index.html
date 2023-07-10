@@ -2,6 +2,7 @@
 {% load static %}
 {% block contant %}
 {% load blog_tags %}
+{% load shop_tags %}
 <!doctype html>
     <main>
         <!--? Hero Area Start-->
@@ -43,7 +44,7 @@
                                     <!-- Hero Caption -->
                                     <div class="hero__caption">
                                         <h1> <br> <br> </h1>
-                                        <a href="{% url 'website:shop' %}" class="btn">بخرید</a>
+                                        <a href="{% url 'shop:index' %}" class="btn">بخرید</a>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +58,7 @@
                                     <!-- Hero Caption -->
                                     <div class="hero__caption">
                                         <h1> <br> <br> </h1>
-                                        <a href="{% url 'website:shop' %}" class="btn">بخرید </a>
+                                        <a href="{% url 'shop:index' %}" class="btn">بخرید </a>
                                     </div>
                                 </div>
                             </div>
@@ -71,7 +72,7 @@
                                     <!-- Hero Caption -->
                                     <div class="hero__caption">
                                         <h1> <br> <br> </h1>
-                                        <a href="{% url 'website:shop' %}" class="btn">بخرید</a>
+                                        <a href="{% url 'shop:index' %}" class="btn">بخرید</a>
                                     </div>
                                 </div>
                             </div>
@@ -85,256 +86,37 @@
         <div class="popular-items pt-50">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                            <div class="popular-img">
-                                <img src="{% static 'assets/img/gallery/popular1.png' %}" alt="">
-                                <div class="img-cap">
-                                    <span>Glasses</span>
-                                </div>
-                                <div class="favorit-items">
-                                 <a href="shop.html" class="btn">Shop Now</a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                        <div class="popular-img">
-                            <img src="{% static 'assets/img/gallery/popular2.png' %}" alt="">
-                            <div class="img-cap">
-                                <span>Watches</span>
-                            </div>
-                            <div class="favorit-items">
-                             <a href="shop.html" class="btn">Shop Now</a>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
-                    <div class="popular-img">
-                        <img src="{% static 'assets/img/gallery/popular3.png' %}" alt="">
-                        <div class="img-cap">
-                            <span>Jackets</span>
-                        </div>
-                        <div class="favorit-items">
-                         <a href="shop.html" class="btn">Shop Now</a>
-                     </div>
-                 </div>
-             </div>
-         </div>
-         <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="single-popular-items mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
-                <div class="popular-img">
-                    <img src="{% static 'assets/img/gallery/popular4.png' %}" alt="">
-                    <div class="img-cap">
-                        <span>Clothes</span>
-                    </div>
-                    <div class="favorit-items">
-                     <a href="shop.html" class="btn">Shop Now</a>
-                 </div>
-             </div>
-         </div>
+                    {% popularproducts %}
+                </div>
      </div>
  </div>
 </div>
 </div>
 <!-- Popular Items End -->
 <!--? New Arrival Start -->
-<div class="new-arrival">
-    <div class="container">
-        <!-- Section tittle -->
-        <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-8 col-md-10">
-                <div class="section-tittle mb-60 text-center wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                    <h2> اجناس تازه رسیده</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s">
-                    <div class="popular-img">
-                        <img src="{% static 'assets/img/gallery/arrival1.png' %}" alt="">
-                        <div class="favorit-items">
-                            <!-- <span class="flaticon-heart"></span> -->
-                            <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="popular-caption">
-                        <h3><a href="product_details.html">Knitted Jumper</a></h3>
-                        <div class="rating mb-10">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <span>$ 30.00</span>
+    <div class="new-arrival">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-7 col-lg-8 col-md-10">
+                    <div class="section-tittle mb-60 text-center wow fadeInUp" data-wow-duration="2s" data-wow-delay=".2s" style="visibility: visible; animation-duration: 2s; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <h2>اجناس تازه رسیده</h2>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-                <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".2s">
-                    <div class="popular-img">
-                        <img src="{% static 'assets/img/gallery/arrival2.png' %}" alt="">
-                        <div class="favorit-items">
-                            <!-- <span class="flaticon-heart"></span> -->
-                            <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
-                        </div>
-                    </div>
-                    <div class="popular-caption">
-                     <h3><a href="product_details.html">Knitted Jumper</a></h3>
-                     <div class="rating mb-10">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <span>$ 30.00</span>
+            <div class="row">
+                    {% new_products %}
+            </div>
+            <div class="row justify-content-center">
+                <div class="room-btn">
+                    <a href="{% url 'shop:index' %}" class="border-btn">محصولات بیشتر </a>
                 </div>
             </div>
         </div>
-        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-            <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                <div class="popular-img">
-                    <img src="{% static 'assets/img/gallery/arrival3.png' %}" alt="">
-                    <div class="favorit-items">
-                        <!-- <span class="flaticon-heart"></span> -->
-                        <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
-                    </div>
-                </div>
-                <div class="popular-caption">
-                 <h3><a href="product_details.html">Knitted Jumper</a></h3>
-                 <div class="rating mb-10">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                </div>
-                <span>$ 30.00</span>
-            </div>
-        </div>
     </div>
-    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-        <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">
-            <div class="popular-img">
-                <img src="{% static 'assets/img/gallery/arrival4.png' %}" alt="">
-                <div class="favorit-items">
-                    <!-- <span class="flaticon-heart"></span> -->
-                    <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
-                </div>
-            </div>
-            <div class="popular-caption">
-             <h3><a href="product_details.html">Knitted Jumper</a></h3>
-             <div class="rating mb-10">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <span>$ 30.00</span>
-        </div>
-    </div>
+    </br>
+    </br>
 </div>
-<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">
-        <div class="popular-img">
-            <img src="{% static 'assets/img/gallery/arrival5.png' %}" alt="">
-            <div class="favorit-items">
-                <!-- <span class="flaticon-heart"></span> -->
-                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
-            </div>
-        </div>
-        <div class="popular-caption">
-         <h3><a href="product_details.html">Knitted Jumper</a></h3>
-         <div class="rating mb-10">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <span>$ 30.00</span>
-    </div>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s">
-        <div class="popular-img">
-            <img src="{% static 'assets/img/gallery/arrival6.png' %}" alt="">
-            <div class="favorit-items">
-                <!-- <span class="flaticon-heart"></span> -->
-                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
-            </div>
-        </div>
-        <div class="popular-caption">
-         <h3><a href="product_details.html">Knitted Jumper</a></h3>
-         <div class="rating mb-10">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <span>$ 30.00</span>
-    </div>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">
-        <div class="popular-img">
-            <img src="{% static 'assets/img/gallery/arrival7.png' %}" alt="">
-            <div class="favorit-items">
-                <!-- <span class="flaticon-heart"></span> -->
-                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
-            </div>
-        </div>
-        <div class="popular-caption">
-         <h3><a href="product_details.html">Knitted Jumper</a></h3>
-         <div class="rating mb-10">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <span>$ 30.00</span>
-    </div>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
-    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">
-        <div class="popular-img">
-            <img src="{% static 'assets/img/gallery/arrival8.png' %}" alt="">
-            <div class="favorit-items">
-                <!-- <span class="flaticon-heart"></span> -->
-                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
-            </div>
-        </div>
-        <div class="popular-caption">
-         <h3><a href="product_details.html">Knitted Jumper</a></h3>
-         <div class="rating mb-10">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-        </div>
-        <span>$ 30.00</span>
-    </div>
-</div>
-</div>
-</div>
-<!-- Button -->
-<div class="row justify-content-center">
-</div>
-</div>
-</div>
+
 <!--? New Arrival End -->
 <!--? collection -->
 <section class="collection section-bg2 section-padding30 section-over1 ml-15 mr-15" data-background="{% static 'assets/img/gallery/section_bg01.png' %}">
@@ -360,7 +142,7 @@
                         <img src="{% static 'assets/img/gallery/popular-imtes1.png' %}" alt="">
                     </div>
                     <div class="location-details">
-                        {% comment %} <p><a href="{% url 'blog:index' %}">Established fact that by the<br> readable content</a></p> {% endcomment %}
+                        <p><a href="{% url 'blog:index' %}">با برخی از برندهای برتر جهان آشنا شوید.</a></p> 
                         <a href="{% url 'blog:index' %}" class="btn"> بیشتر بخوانید</a>
                     </div>
                 </div>
@@ -371,7 +153,7 @@
                         <img src="{% static 'assets/img/gallery/popular-imtes2.png' %}" alt="">
                     </div>
                     <div class="location-details">
-                        {% comment %} <p><a href="{% url 'blog:index' %}">Established fact that by the<br> readable content</a></p> {% endcomment %}
+                        <p><a href="{% url 'blog:index' %}">تاریخچه مد در ایران</a></p> 
                         <a href="{% url 'blog:index' %}" class="btn"> بیشتر بدانید</a>
                     </div>
                 </div>
@@ -440,4 +222,9 @@
 
 </body>
 </html>
+<style>
+    .popular-img{
+        height :350px !important;
+    }
+</style>
 {% endblock %}

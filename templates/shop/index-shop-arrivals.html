@@ -1,0 +1,33 @@
+{% load static %}
+{% load humanize %}
+{% load jalali_tags %}
+        <div class="row">
+            {% for product in products %}
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+                    <div class="single-new-arrival mb-50 text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay=".1s" style="visibility: visible; animation-duration: 1s; animation-delay: 0.1s; animation-name: fadeInUp;">
+                        <div class="popular-img">
+                            <img src="{{product.image.url}}" alt="">
+                            <div class="favorit-items">
+                                <!-- <span class="flaticon-heart"></span> -->
+                                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
+                            </div>
+                        </div>
+                        <div class="popular-caption">
+                            <h3><a href="{% url 'shop:details' pid=product.id %}">{{product.title}}</a></h3>
+                            <div class="rating mb-10">
+                            </div>
+                            <li>تومان {{product.price}}</li>
+                        </div>
+                    </div> 
+                </div>
+            {% endfor%}
+        </div>
+    </div>
+</div>
+
+<style>
+.popular-img {
+    width:270px !important;
+    height:350px !important;
+} 
+</style> 

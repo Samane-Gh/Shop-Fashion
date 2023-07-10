@@ -31,3 +31,7 @@ def latest_products(arg=3):
     products = Product.objects.filter(status=1).order_by('-published_date')[:arg]
     return {'products': products }
 
+@register.inclusion_tag('shop/index-shop-arrivals.html')
+def new_products(arg=4):
+    products = Product.objects.filter(status=1).order_by('-published_date')[:arg]
+    return {'products': products }
