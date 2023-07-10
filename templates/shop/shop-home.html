@@ -76,11 +76,11 @@
                                                     <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
                                                 </div>
                                             </div>
-                                            <div class="popular-caption">
+                                            <div class="popular-caption"dir="rtl" align="center">
                                             <h3><a href="{% url 'shop:details' pid=product.id %}">{{product.title}}</a></h3>
                                             <div class="rating mb-10">
                                             </div>
-                                            <li>تومان {{product.price}}</li>
+                                            <li>{{product.price}}  تومان </li>
                                         </div>
                                     </div> 
                                 </div>
@@ -204,7 +204,7 @@
 </html>
 <style>
     .popular-img{
-        height :350px !important;
+        height :300px !important;
     }
 </style>
 {% endblock %}

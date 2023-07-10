@@ -33,15 +33,17 @@
           <div class="col-lg-8 posts-list">
             <div class="single-post">
               <div class="feature-img">
-                <img class="img-fluid" src="{{product.image.url}}" alt="">
+                <img class="img-fluid-details" src="{{product.image.url}}" alt="">
               </div>
               <div class="blog_details">
                 <h2 style="color: #2d2d2d;"dir="rtl" align="right">{{product.title}}</h2>
-                <ul class="blog-info-link mt-3 mb-4">
-                  <li>
-                    <a href="#"><i class="fa fa-user"></i> {{product.auther}}</a>
+                <ul class="blog-info-link mt-3 mb-4"ir="rtl" align="right">
+                  <li><a href="{% url 'shop:details' pid=product.id  %}">
+                    {% for cat in product.Category.all %}
+                      <a href ="{% url 'shop:category' cat_name=cat.name %}" >&#10148;<h>{{cat.name}}</h></a>
+                    {% endfor %}
+                      </a> 
                   </li>
-                  {% comment %} <li><a href="#"><i class="fa fa-calendar-full"></i> {{post.published_date|date:"d M Y"}}</a></li> {% endcomment %}
                   <li>
                     <a href="#"><i class="fa fa-eye"></i> {{product.counted_views}}</a>
                   </li>
@@ -50,6 +52,12 @@
                   </li>
                 </ul>
                 <p class="excert">{{ product.content|safe }}</p>
+                <div class="product-feature"style="color: #2d2d2d;"dir="rtl" align="right"> ویژگی ها
+                  <div><a>:جنس                     </a>{{product.substance|safe}}</div>
+                  <div><a>:رنگ                     </a>{{product.color|safe}}</div>
+                  <div><a>:سایز                     </a>{{product.size|safe}}</div>
+                  <br>
+                </div>
               </div>
               </dev>
               <div class="navigation-top">
@@ -103,6 +111,7 @@
                   </div>
                 </div>
               </div>
+              <div class="customer-comment" dir="ltr" align="center"></br><a> دیدگاه کاربران </a></div>
               <div class="comments-area"dir="rtl" align="right">
                 <h4>{% comments_count product.id %} نظر</h4>
                 {% for comment in comments %}
@@ -134,7 +143,7 @@
                 {% endfor %}
               </div>
             </div>
-            <div class="comment-form"dir="rtl" align="center">
+            <div class="comment-form" dir="rtl" align="center">
               <h4> شما هم نظر خود را بنویسید!</h4>
               <form class="form-contact comment-form"
                     method="post"
@@ -311,11 +320,20 @@
 </body>
 </html>
 <style>
-
+.customer-comment{
+  font-size:30px;
+  color:#800080!important;
+}
   
   .img-fluid {
      width: 100%;
     height: auto;
+  }
+  .img-fluid-details{
+    dir:rtl;
+    height:500px !important;
+    width: 600px !important;
+
   }
 
   .next-product-img{

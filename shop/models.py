@@ -22,6 +22,7 @@ class Product(models.Model):
     content = models.TextField() 
     color = models.CharField(max_length=255)
     size = models.CharField(max_length=255)
+    substance = models.CharField(max_length=255)
     Category =models.ManyToManyField(Category)
     counted_views = models.IntegerField()
     status = models.BooleanField(default=False)

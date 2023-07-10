@@ -10,13 +10,6 @@
             <div class="slider-area">
                 <!-- Mobile Device Show Menu-->
                 <div class="header-right2 d-flex align-items-center">
-                    <!-- Social -->
-                    <div class="header-social  d-block d-md-none">
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="https://bit.ly/sai4ull"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                    </div>
-                    <!-- Search Box -->
                     <div class="search d-block d-md-none" >
                         <ul class="d-flex align-items-center">
                             <li class="mr-15">
@@ -134,15 +127,15 @@
 <!-- End collection -->
 <!--? Popular Locations Start 01-->
 <div class="popular-product pt-50">
-    <div class="container-fluid">
+    <div class="container-fluid" >
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="single-product mb-50">
                     <div class="location-img">
-                        <img src="{% static 'assets/img/gallery/popular-imtes1.png' %}" alt="">
+                        <img src="{% static 'assets/img/gallery/AdobeStock.jpg' %}" alt="">
                     </div>
-                    <div class="location-details">
-                        <p><a href="{% url 'blog:index' %}">با برخی از برندهای برتر جهان آشنا شوید.</a></p> 
+                    <div class="location-details"dir="rtl" align="center" >
+                        <p><a href="{% url 'blog:index' %}">مد پایدار </a></p> 
                         <a href="{% url 'blog:index' %}" class="btn"> بیشتر بخوانید</a>
                     </div>
                 </div>
@@ -150,10 +143,10 @@
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="single-product mb-50">
                     <div class="location-img">
-                        <img src="{% static 'assets/img/gallery/popular-imtes2.png' %}" alt="">
+                        <img src="{% static 'assets/img/gallery/What-is-monochrome-style.jpg' %}" alt="">
                     </div>
-                    <div class="location-details">
-                        <p><a href="{% url 'blog:index' %}">تاریخچه مد در ایران</a></p> 
+                    <div class="location-details"align="center">
+                        <p><a href="{% url 'blog:index' %}">استایل مونوکروم</a></p> 
                         <a href="{% url 'blog:index' %}" class="btn"> بیشتر بدانید</a>
                     </div>
                 </div>
@@ -224,7 +217,11 @@
 </html>
 <style>
     .popular-img{
-        height :350px !important;
+        height :300px !important;
     }
+.location-img{
+    height:500px !important;
+    width:700px !important;
+}
 </style>
 {% endblock %}

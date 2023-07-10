@@ -35,7 +35,7 @@
               <div class="feature-img">
                 <img class="img-fluid" src="{{post.image.url}}" alt="">
               </div>
-              <div class="blog_details">
+              <div class="blog_details" dir="rtl" align="right">
                 <h2 style="color: #2d2d2d;"dir="rtl" align="right">{{post.title}}</h2>
                 <ul class="blog-info-link mt-3 mb-4">
                   <li>
@@ -49,7 +49,7 @@
                     <a href="#"><i class="fa fa-comment"></i> {% comments_count post.id %}</a>
                   </li>
                 </ul>
-                <p class="excert">{{ post.content|safe }}</p>
+                <p class="excert"dir="rtl" align="right">{{ post.content|safe }}</p>
               </div>
               </dev>
               <div class="navigation-top">
