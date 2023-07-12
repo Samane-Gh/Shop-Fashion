@@ -1,5 +1,5 @@
 from django import template
-from shop.models import Product,Comment
+from shop.models import Product,shopComment
 from shop.models import Category
 register = template.Library()
 
@@ -8,9 +8,9 @@ def function():
     products = Product.objects.filter(status=1)
     return products
 
-@register.simple_tag(name='comments_count')
+@register.simple_tag(name='shopcomments_count')
 def function(pid):
-    return Comment.objects.filter(product=pid,approved=True).count()
+    return shopComment.objects.filter(product=pid,approved=True).count()
     
 @register.inclusion_tag('shop/shop-popular.html')
 def popularproducts(arg=4):

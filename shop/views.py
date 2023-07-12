@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render,get_object_or_404
-from shop.models import Product,Comment
+from shop.models import Product,shopComment
 from shop.models import Category
 from django.utils import timezone
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -48,17 +48,17 @@ def shop_details(request,pid=None):
     product.counted_views +=1
     product.save()
     next_product = Product.objects.filter(published_date__gt=product.published_date).order_by('published_date').first()
-    prev_product =Product.objects.filter(published_date__lt=product.published_date).order_by('published_date').last()
+    prev_product = Product.objects.filter(published_date__lt=product.published_date).order_by('published_date').last()
     if not product.login_required:
-        comments = Comment.objects.filter(product=product.id , approved=True)
+        shopcomments = shopComment.objects.filter(product=product.id , approved=True)
         form = CommentForm()
-        contex = {'product': product,'next_product': next_product,'prev_product': prev_product,'comments': comments,'form': form}
+        contex = {'product': product,'next_product': next_product,'prev_product': prev_product,'shopcomments': shopcomments,'form': form}
         return render(request,'shop/details.html',contex)
     elif product.login_required:
         if request.user.is_authenticated:
-            comments = Comment.objects.filter(product=product.id , approved=True)
+            comments = shopComment.objects.filter(product=product.id , approved=True)
             form = CommentForm()
-            contex = {'product': product,'next_product': next_product,'prev_product': prev_product,'comments': comments,'form': form}
+            contex = {'product': product,'next_product': next_product,'prev_product': prev_product,'shopcomments': shopcomments,'form': form}
             return render(request,'shop/details.html',contex)
         else:
             return HttpResponseRedirect(reverse('accounts:login')) 

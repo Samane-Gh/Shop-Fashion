@@ -1,5 +1,5 @@
 from django.contrib import admin
-from shop.models import Product,Category,Comment
+from shop.models import Product,Category,shopComment
 from django_summernote.admin import SummernoteModelAdmin
 
 class ProductAdmin(SummernoteModelAdmin):
@@ -16,7 +16,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_filter = ('name','approved', )
     search_fields = ['name','subject','massage']
 
-admin.site.register(Comment,CommentAdmin)
+admin.site.register(shopComment,CommentAdmin)
 admin.site.register(Category)
 admin.site.register(Product,ProductAdmin)
 

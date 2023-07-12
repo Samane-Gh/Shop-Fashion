@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load shop_tags %}
+{% load blog_tags %}
 {% load humanize %}
 {% block contant %}
 
@@ -52,12 +53,23 @@
                   </li>
                 </ul>
                 <p class="excert">{{ product.content|safe }}</p>
-                <div class="product-feature"style="color: #2d2d2d;"dir="rtl" align="right"> ویژگی ها
-                  <div><a>:جنس                     </a>{{product.substance|safe}}</div>
-                  <div><a>:رنگ                     </a>{{product.color|safe}}</div>
-                  <div><a>:سایز                     </a>{{product.size|safe}}</div>
+                <ul class="product-features" dir="rtl" align="right"> <div>ویژگی ها</div>
                   <br>
-                </div>
+                  <li class="product-feature-table">
+                    <a class="product-feature-table-title"  dir="rtl" align="right">جنس &emsp; : &emsp;</a>
+                    <a class="product-feature-table-details" dir="rtl" align="right">{{product.substance|safe}}</a><br></br>
+                  
+                  </li>
+                  <li class="product-feature-table">
+                    <a class="product-feature-table-title" dir="rtl" align="right">سایز &emsp; : &emsp;</a>
+                    <a class="product-feature-table-details"  dir="rtl" align="right">{{product.size|safe}}</a><br></br>
+                  </li>
+                  <li class="product-feature-table">
+                    <a class="product-feature-table-title" dir="rtl" align="right">رنگ &emsp; : &emsp;</a>
+                    <a class="product-feature-table-details" dir="rtl" align="right">{{product.color|safe}}</a><br></br>
+                  </li>
+                  <br>
+                </ul>
               </div>
               </dev>
               <div class="navigation-top">
@@ -111,10 +123,11 @@
                   </div>
                 </div>
               </div>
+              
               <div class="customer-comment" dir="ltr" align="center"></br><a> دیدگاه کاربران </a></div>
               <div class="comments-area"dir="rtl" align="right">
-                <h4>{% comments_count product.id %} نظر</h4>
-                {% for comment in comments %}
+                <h4>{% shopcomments_count pid=product.id %} نظر</h4>
+                {% for shopcomment in shopcomments %}
                   <div class="comment-list">
                     <div class="single-comment justify-content-between d-flex">
                       <div class="user justify-content-between d-flex">
@@ -122,16 +135,16 @@
                           <img src="{% static 'assets/img/blog/comment.png' %}" alt="">
                         </div>
                         <div class="desc">
-                          <p href="#">{{ comment.name }}</p>
+                          <p href="#">{{ shopcomment.name }}</p>
                           
                           <div class="d-flex justify-content-between">
                             <div class="d-flex align-items-center">
                               <h5>
-                                <li class="comment">{{ comment.massage }}
+                                <li class="comment">{{ shopcomment.massage }}
                                 &nbsp;
                                 &nbsp;
                                 &nbsp;
-                                <class="date">{{ comment.created_date}}</li>
+                                <class="date">{{ shopcomment.created_date}}</li>
                               </h5>
                               
                             </div>
@@ -235,7 +248,7 @@
           <div class="col-lg-4">
             <div class="blog_right_sidebar" dir="rtl" align="right">
               <aside class="single_sidebar_widget search_widget" >
-                {% include 'blog/blog-search.html' %}
+                {% include 'shop/shop-search.html' %}
               </aside>
               <aside class="single_sidebar_widget post_category_widget"dir="rtl" align="center">
                 <h4 class="widget_title" style="color: #2d2d2d;">دسته بندی </h4>
@@ -320,6 +333,17 @@
 </body>
 </html>
 <style>
+  .product-features{
+    font-size:20px !important;
+  }
+ .product-feature-table {
+    align-right:100px !important;
+    color: #800080;
+    font-size: 16px;
+    letter-spacing: normal;
+    line-height: normal;
+  
+}
 .customer-comment{
   font-size:30px;
   color:#800080!important;
