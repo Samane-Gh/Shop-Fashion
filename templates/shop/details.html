@@ -68,6 +68,13 @@
                     <a class="product-feature-table-title" dir="rtl" align="right">رنگ &emsp; : &emsp;</a>
                     <a class="product-feature-table-details" dir="rtl" align="right">{{product.color|safe}}</a><br></br>
                   </li>
+                  <li class="product-feature-table">
+                  {% if product.status is False %}
+                      <a class="product-feature-table-title" dir="rtl" align="center"> ناموجود&emsp; &emsp;</a>
+                    {% else %}
+                     <a class="product-feature-table-title" dir="rtl" align="center">موجود&emsp; &emsp;</a>
+                  {% endif %}
+                  </li>
                   <br>
                 </ul>
               </div>

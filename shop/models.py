@@ -71,3 +71,17 @@ class Calender(models.Model):
     def __str__(self):
         return self.name
     
+class Cart(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(default= timezone.now)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    price_t = models.FloatField(blank=True)
+    
+    tax = 19.25
+    
+    def price_total(self):
+        return self.price_t * (1 + 19.25 /100.0) 
+    
+    def __str__(self):
+        return self.product.name + " - " + self.product

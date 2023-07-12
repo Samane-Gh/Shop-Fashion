@@ -8,8 +8,7 @@
                         <div class="popular-img">
                             <img src="{{product.image.url}}" alt="">
                             <div class="favorit-items">
-                                <!-- <span class="flaticon-heart"></span> -->
-                                <img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt="">
+                                <a href="{% url 'shop:cart_add' product.id %}"><img src="{% static 'assets/img/gallery/favorit-card.png' %}" alt=""></a>
                             </div>
                         </div>
                         <div class="popular-caption">
