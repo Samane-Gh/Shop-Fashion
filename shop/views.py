@@ -1,17 +1,22 @@
 
+from itertools import product
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render,get_object_or_404
-from shop.models import Product,shopComment
-from shop.models import Category ,Cart
+from shop.models import Order, Product,shopComment
+from shop.models import Category 
 from django.utils import timezone
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from blog.forms import CommentForm
+from blog.forms import CommentForm 
 from django.urls import reverse
 from blog.forms import NewsletterForm
 from jalali_date import datetime2jalali, date2jalali
 from django.template.defaultfilters import date
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
+
+
+
 
 
 # Create your views here.
@@ -93,61 +98,61 @@ def shop_search(request):
 def my_view(request):
 	jalali_join1 = (datetime2jalali(request.user.date_joined)).strftime('%B')
 
-# def add_to_cart(request, product_id, quantity):
-#     product = Product.objects.get(id=product_id)
-#     cart = Cart(request)
-#     cart.add(product, product.unit_price, quantity)
+# def cart_view(self, request):
+#         product = request.POST.get('product')
+#         remove = request.POST.get('remove')
+#         cart = request.session.get('cart')
+#         if cart:
+#             quantity = cart.get(product)
+#             if quantity:
+#                 if remove:
+#                     if quantity <= 1:
+#                         cart.pop(product)
+#                     else:
+#                         cart[product] = quantity-1
+#                 else:
+#                     cart[product] = quantity+1
+  
+#             else:
+#                 cart[product] = 1
+#         else:
+#             cart = {}
+#             cart[product] = 1
+  
+#         request.session['cart'] = cart
+#         print('cart', request.session['cart'])
+#         return redirect('/')
+  
+# def get(self, request):
+        
+#         return HttpResponseRedirect(f'/store{request.get_full_path()[1:]}')
+  
 
-# def remove_from_cart(request, product_id):
-#     product = Product.objects.get(id=product_id)
-#     cart = Cart(request)
-#     cart.remove(product)
+  
+# def order_view(self, request):
+#         customer = request.session.get('customer')
+#         orders = Order.get_orders_by_customer(customer)
+#         print(orders)
+#         return render(request, 'index.html', {'orders': orders}) 
+    
 
-# def get_cart(request):
-#     return render(request, 'cart.html', {'cart': Cart(request)})
-
-# @login_required(login_url="/users/login")
-def cart_add(request, pid=None):
-    cart = Cart(request)
-    product = Product.objects.get(pid=product.id)
-    cart.add(product=product)
-    return redirect("home")
-
-
-# @login_required(login_url="/users/login")
-def item_clear(request, id):
-    cart = Cart(request)
-    product = Product.objects.get(id=id)
-    cart.remove(product)
-    return redirect("cart_detail")
+def cart_add(request,pid):
+    product = get_object_or_404(Product, pk=pid)
+    # order = Order.objects.get_or_create(price=product.price)
+    order = Order()
+    order.price = product.price
+    order.product_id = pid
+    order.user_id = request.user.id
+    order.save()
+    return render(request,'shop/shop-home.html') 
+    
+    
 
 
-# @login_required(login_url="/users/login")
-def item_increment(request, pid=None):
-    cart = Cart(request)
-    product = Product.objects.get(pid=product.id)
-    cart.add(product=product)
-    return redirect("cart_detail")
+# def cart_remove(request, product_id):
+# 	cart = Cart(request)
+# 	product = get_object_or_404(Product, id=product_id)
+# 	cart.remove(product)
+# 	return redirect('cart:cart_detail')
 
-
-# @login_required(login_url="/users/login")
-def item_decrement(request, pid=None):
-    cart = Cart(request)
-    product = Product.objects.get(pid=product.id)
-    cart.decrement(product=product)
-    return redirect("cart_detail")
-
-
-# @login_required(login_url="/users/login")
-def cart_clear(request):
-    cart = Cart(request)
-    cart.clear()
-    return redirect("cart_detail")
-
-
-# @login_required(login_url="/users/login")
-def cart_detail(request):
-    cart = Cart(request)
-    contex ={'cart': cart}
-    return render(request, 'shop/cart_detail.html',contex)   
 

@@ -2,7 +2,7 @@
 {% load static %}
 {% block contant%}
 {% load blog_tags %}
-    {% comment %} <table>
+     {% comment %} <table>
         <tr>
             <th>Product</th>
             <th>Quantity</th>
@@ -16,5 +16,27 @@
         </tr>
         {% endfor %}
     </table>  {% endcomment %}
-    <p> hello </p>
+    <table class="table table-hover">
+        <thead>
+          <tr> 
+            <th>Cart ID</th>
+            <th>Cart Items</th>
+            <th>Baker Name</th>
+            <th>Product Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{ object.cart }}</td>
+            <td>{{ object.product }}</td>                      
+            <td>{{ object.product.baker }}</td>   
+            <td>{{ object.product.price }}</td>
+          </tr>
+        </tbody>
+      </table>
+      {% for product in products %}
+        {{product.id}}
+        {{product.title}} # Fields related to product
+    {% endfor %}
+
 {% endblock %} 
