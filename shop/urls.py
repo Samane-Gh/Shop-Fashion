@@ -14,9 +14,8 @@ urlpatterns = [
     path('category/<str:cat_name>',shop_view,name='category'),
     path('details',shop_details,name='details'),
     path('search/',shop_search,name='search'),
-    # path('cart/',cart_view,name='cart'),
     path('add/<int:pid>/',cart_add, name='cart_add'),
     path('cart_detail/',cart_detail, name='cart_detail'),
-	# path('remove/<int:pid>/', cart_remove, name='cart_remove'),
+	path('remove/<int:pid>/', cart_remove, name='cart_remove'),
       
 ] 

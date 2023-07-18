@@ -53,6 +53,11 @@
                   </li>
                 </ul>
                 <p class="excert">{{ product.content|safe }}</p>
+                <div class="form-group">
+                  <a href="{% url 'shop:cart_add' pid=product.id %}"><button type="submit" class="btn bb-btn">افزودن به سبد خرید</a>
+                </div>
+                  
+                </button>
                 <ul class="product-features" dir="rtl" align="right"> <div>ویژگی ها</div>
                   <br>
                   <li class="product-feature-table">
@@ -290,16 +295,6 @@
     </section>
   </main>
   <!-- Blog Area End -->
-  <!--? Search model Begin -->
-  <div class="search-model-box">
-    <div class="h-100 d-flex align-items-center justify-content-center">
-      <div class="search-close-btn">+</div>
-      <form class="search-model-form">
-        <input type="text" id="search-input" placeholder="Searching key.....">
-      </form>
-    </div>
-  </div>
-  <!-- Search model end -->
   <!-- Scroll Up -->
   <div id="back-top">
     <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
@@ -337,6 +332,7 @@
   <!-- Jquery Plugins, main Jquery -->
   <script src="{% static 'assets/js/plugins.js' %}"></script>
   <script src="{% static 'assets/js/main.js' %}"></script>
+  
 </body>
 </html>
 <style>
@@ -375,5 +371,6 @@
     width: 80px !important;
     height: 80px !important;
   }
+
 </style>
 {% endblock %}

@@ -21,33 +21,32 @@
                 <div id="login-row" class="row justify-content-center align-items-center">
                     <div id="login-column" class="col-md-6">
                         <div id="login-box" class="col-md-12">
-                            <form id="login-form" class="form" action="{% url 'accounts:signup' %}" method="post">
+                            <form id="login-form"  dir="rtl" align="right" class="form" action="{% url 'accounts:signup' %}" method="post">
                                 {% csrf_token %}
-                                <h3 class="text-center text-info">Signup</h3>
+                                <h3 class="text-center text-info" >فرم ثبت نام</h3>
                                 <div class="form-group">
-                                    <label for="username" class="text-info" placeholder="Username" required autofocus>Username:</label><br>
-                                    <input name="username" placeholder="Enter your name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" class="common-input mb-20 form-control" required="" type="text">
+                                    <label for="username" class="text-info" placeholder="Username" required autofocus>  نام کاربری </label><br>
+                                    <input name="username" placeholder="نام خود را وارد کنید" onfocus="this.placeholder = ''" onblur="this.placeholder = 'نام خود را وارد کنید'" class="common-input mb-20 form-control" required="" type="text">
             
                                 </div>
                                 <div class="form-group">
-                                    <label for="email" class="text-info">Email:</label><br>
-                                    <input name="email" placeholder="Enter email address" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" class="common-input mb-20 form-control" required="" type="email">
+                                    <label for="email" class="text-info">   ایمیل  </label><br>
+                                    <input name="email" placeholder="ایمیل خود را وارد کنید" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ایمیل خود را وارد کنید'" class="common-input mb-20 form-control" required="" type="email">
                                 
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" class="text-info">Password:</label><br>
-                                    <input name="password1" placeholder="Enter your password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control" type="password">
+                                    <label for="password" class="text-info">   رمز عبور </label><br>
+                                    <input name="password1" placeholder="رمز خود را وارد کنید" onfocus="this.placeholder = ''" onblur="this.placeholder = 'رمز خود را وارد کنید'" class="common-input mb-20 form-control" type="password">
                                 
                                 </div>
                                 <div class="form-group">
-                                    <label for="password" class="text-info"> Confirm Password:</label><br>
-                                    <input name="password2" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'" class="common-input mb-20 form-control" type="password">
+                                    <label for="password" class="text-info">   تکرار رمز عبور </label><br>
+                                    <input name="password2" placeholder="رمز خود را تکرار کنید" onfocus="this.placeholder = ''" onblur="this.placeholder = 'رمز خود را تکرار کنید'" class="common-input mb-20 form-control" type="password">
                                 
                                 </div>
                                 
                                 <div class="form-group">
-                                    {% comment %} <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> {% endcomment %}
-                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="ثبت نام">
                                 </div>
                                 <div id="register-link" class="text-right">
                                    

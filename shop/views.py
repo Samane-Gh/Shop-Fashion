@@ -104,68 +104,22 @@ def cart_add(request,pid):
     # order = Order.objects.get_or_create(price=product.price)
     order = Order()
     order.price = product.price
-    order.product_id = pid
     order.user_id = request.user.id
+    order.product_id = pid
     order.save()
     return render(request,'shop/shop-home.html') 
 
 def cart_detail(request):
     cart=Cart.objects.all()
     orders = Order.objects.order_by('date')
-    contex ={'orders':orders}
+    contex ={'orders':orders,'cart':cart}
     return render(request,'shop/cart_detail.html',contex)
 
 
-
-# def cart_view(self, request):
-#         product = request.POST.get('product')
-#         remove = request.POST.get('remove')
-#         cart = request.session.get('cart')
-#         if cart:
-#             quantity = cart.get(product)
-#             if quantity:
-#                 if remove:
-#                     if quantity <= 1:
-#                         cart.pop(product)
-#                     else:
-#                         cart[product] = quantity-1
-#                 else:
-#                     cart[product] = quantity+1
-  
-#             else:
-#                 cart[product] = 1
-#         else:
-#             cart = {}
-#             cart[product] = 1
-  
-#         request.session['cart'] = cart
-#         print('cart', request.session['cart'])
-#         return redirect('/')
-  
-# def get(self, request):
-        
-#         return HttpResponseRedirect(f'/store{request.get_full_path()[1:]}')
-  
-
-  
-# def order_view(self, request):
-#         customer = request.session.get('customer')
-#         orders = Order.get_orders_by_customer(customer)
-#         print(orders)
-#         return render(request, 'index.html', {'orders': orders}) 
-    
-
-    # @staticmethod
-    # def get_orders_by_customer(pid):
-    #     return Order.objects.filter(customer=pid).order_by('-date')
-    
-    
-
-
-# def cart_remove(request, product_id):
-# 	cart = Cart(request)
-# 	product = get_object_or_404(Product, id=product_id)
-# 	cart.remove(product)
-# 	return redirect('cart:cart_detail')
+def cart_remove(request,pid):
+	cart = Cart(request)
+	order = get_object_or_404(Order, id=pid)
+	order.delete()
+	return redirect('/')
 
 

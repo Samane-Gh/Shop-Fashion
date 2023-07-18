@@ -77,7 +77,7 @@
                                         <a class="card-stor" href="{% url 'shop:cart_detail' %}">
                                             
                                             <img src="{% static 'assets/img/gallery/card.svg' %}" alt="">
-                                            <span>{% order_count  user %}</span>
+                                            {% comment %} <span>{% order_count  user %}</span> {% endcomment %}
                                         </a>
                                     </li>
                                 </ul>
