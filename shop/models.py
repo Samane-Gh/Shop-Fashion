@@ -5,7 +5,7 @@ from django.urls import reverse
 from taggit.managers import TaggableManager
 from django.db import models
 from django.utils import timezone
-import datetime
+
 
 
 
@@ -97,21 +97,6 @@ class Calender(models.Model):
         return self.name
     
   
-    
-# class Cart(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE)
-#     created_at = models.DateTimeField(default= timezone.now)
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE,null=True)
-#     quantity = models.IntegerField(default=1)
-#     price_t = models.FloatField(null=True)
-    
-#     tax = 19.25
-    
-#     def price_total(self):
-#         return self.price_t * (1 + 19.25 /100.0) 
-    
-#     def __str__(self):
-#         return self.product.name + " - " + self.product
 
 
 

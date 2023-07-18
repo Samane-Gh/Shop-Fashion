@@ -7,9 +7,9 @@ from shop.models import Order, Product,shopComment ,Cart
 from shop.models import Category 
 from django.utils import timezone
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
-from blog.forms import CommentForm 
+from shop.forms import ShopCommentForm 
 from django.urls import reverse
-from blog.forms import NewsletterForm
+from shop.forms import NewsletterForm
 from jalali_date import datetime2jalali, date2jalali
 from django.template.defaultfilters import date
 from django.contrib.auth.decorators import login_required
@@ -44,11 +44,12 @@ def shop_view(request,**kwargs):
 def shop_details(request,pid=None):    
     product = get_object_or_404(Product, id = pid)
     if request.method == 'POST':
-        form = CommentForm(request.POST)
-        if form.is_valid():
+        form = ShopCommentForm(request.POST)
+        if form.is_valid():            
             form.save()
             messages.add_message(request,messages.SUCCESS,'your comment submited successfully')
         else:
+           print(form.errors.as_data())
            messages.add_message(request,messages.ERROR,'your comment did not submited successfully')        
     product = Product.objects.get(id =pid)
     product.counted_views +=1
@@ -57,13 +58,13 @@ def shop_details(request,pid=None):
     prev_product = Product.objects.filter(published_date__lt=product.published_date).order_by('published_date').last()
     if not product.login_required:
         shopcomments = shopComment.objects.filter(product=product.id , approved=True)
-        form = CommentForm()
+        form = ShopCommentForm()
         contex = {'product': product,'next_product': next_product,'prev_product': prev_product,'shopcomments': shopcomments,'form': form}
         return render(request,'shop/details.html',contex)
     elif product.login_required:
         if request.user.is_authenticated:
-            comments = shopComment.objects.filter(product=product.id , approved=True)
-            form = CommentForm()
+            shopcomments = shopComment.objects.filter(product=product.id , approved=True)
+            form = ShopCommentForm()
             contex = {'product': product,'next_product': next_product,'prev_product': prev_product,'shopcomments': shopcomments,'form': form}
             return render(request,'shop/details.html',contex)
         else:
@@ -101,7 +102,12 @@ def my_view(request):
 
 def cart_add(request,pid):
     product = get_object_or_404(Product, pk=pid)
-    # order = Order.objects.get_or_create(price=product.price)
+    order = get_object_or_404(Order,product_id=pid, user_id=request.user.id)
+    
+    if order is not None and order.quantity is not None:
+            order.quantity = order.quantity + 1
+            order.save()
+            return render(request,'shop/shop-home.html')    
     order = Order()
     order.price = product.price
     order.user_id = request.user.id
@@ -112,7 +118,11 @@ def cart_add(request,pid):
 def cart_detail(request):
     cart=Cart.objects.all()
     orders = Order.objects.order_by('date')
-    contex ={'orders':orders,'cart':cart}
+    sum = 0
+    for item in orders.all():
+        sum += item.price * item.quantity
+        
+    contex ={'orders':orders,'cart':cart, 'sum': sum}
     return render(request,'shop/cart_detail.html',contex)
 
 

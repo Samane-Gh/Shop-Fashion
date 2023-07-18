@@ -17,13 +17,14 @@
         </tr>
         {% endfor %}
     </table>  {% endcomment %}
-    <table class="table table-hover" dir="rtl" align="center">
+    <table class="table table-hover" dir="rtl" align="">
         <thead>
           <tr> 
             <th> کاربر</th>
             <th>نام محصول</th>
             <th>تعداد محصول</th>
             <th>قیمت محصول</th>
+            <th>عملیات</th>
           </tr>
         </thead>
         <tbody>
@@ -33,12 +34,36 @@
             <td>{{order.product}}</td>
             <td>{{order.quantity}}</td>                      
             <td>{{order.price}}</td>
-            <td><div class="form-group" dir="rtl" align="center">
-              <a href="{% url 'shop:cart_remove' pid=order.id %}"><button type="submit" style="width:5px;"  class="btn bb-btn">حذف</a>
+            <td><div class="form-group" dir="rtl" align="">
+              <a href="{% url 'shop:cart_remove' pid=order.id %}"><button type="submit" "  class="btn-lg btn-primary">حذف</a>
             </div>
             </button></td>   
           </tr>
           {% endfor %}
+        </tbody>
+      </table>
+      
+      
+      {% for order in orders %}
+      {% endfor %}
+      
+      <table class="table table-striped" dir="rtl" align="">
+        <thead>
+          <tr> 
+            <th> قیمت کل</th>
+            <th>عملیات</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <td>{{ sum }}</td>
+            <td><div class="form-group" dir="rtl" align="">
+              {% comment %} <a href="{% url 'shop:cart_remove' pid=order.id %}"><button type="submit" "  class="btn-lg btn-primary">ثبت نهایی</a> {% endcomment %}
+              <a href=""><button type="submit" "  class="btn btn-primary">ثبت نهایی</a>
+            </div>
+            </button></td>   
+          </tr>          
         </tbody>
       </table>
 {% endblock %} 

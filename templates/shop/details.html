@@ -49,14 +49,13 @@
                     <a href="#"><i class="fa fa-eye"></i> {{product.counted_views}}</a>
                   </li>
                   <li>
-                    <a href="#"><i class="fa fa-comment"></i> {% comments_count pid=product.id %}</a>
+                    <a href="#"><i class="fa fa-comment"></i> {% shopcomments_count pid=product.id %}</a>
                   </li>
                 </ul>
                 <p class="excert">{{ product.content|safe }}</p>
                 <div class="form-group">
                   <a href="{% url 'shop:cart_add' pid=product.id %}"><button type="submit" class="btn bb-btn">افزودن به سبد خرید</a>
                 </div>
-                  
                 </button>
                 <ul class="product-features" dir="rtl" align="right"> <div>ویژگی ها</div>
                   <br>
@@ -175,7 +174,7 @@
                     action="{% url "shop:details" pid=product.id %}">
                 {% csrf_token %}
                 <div class="row">
-                  <input type="hidden" id="id_post" name="post" value={{ product.id }}>
+                  <input type="hidden" id="id_product" name="product" value={{ product.id }} >
                   {% if request.user.is_authenticated %}
                     <input type="hidden" name="name"  id="id_name" value={{ request.user.username }}>
                     <input type="hidden"
@@ -235,8 +234,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn bb-btn">
-                  ثبت نظر </a>
+                  <button type="submit" class="btn bb-btn">ثبت نظر </button>
                 </div>
               </form>
               {% if messages %}

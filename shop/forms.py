@@ -6,11 +6,11 @@ from jalali_date.fields import JalaliDateField, SplitJalaliDateTimeField
 from jalali_date.widgets import AdminJalaliDateWidget, AdminSplitJalaliDateTime
 from shop.models import Calender
 
-class CommentForm(forms.ModelForm):
+class ShopCommentForm(forms.ModelForm):
 
     class Meta:
         model = shopComment
-        fields =['post','name','subject','email','massage']
+        fields =['product','name','subject','email','massage']
         
   
 class NewsletterForm(forms.ModelForm):
