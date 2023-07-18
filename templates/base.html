@@ -1,5 +1,6 @@
 {% load static %}
 {% load static compress %}
+{% load shop_tags %}
 
 <html class="no-js" lang="zxx">
 <head>
@@ -73,10 +74,10 @@
                                     <li class="mr-15">
                                     </li>
                                     <li>
-                                        {% comment %} <a class="card-stor" href="{% url 'shop:cart_detail' %}"> {% endcomment %}
+                                        <a class="card-stor" href="{% url 'shop:cart_detail' %}">
                                             
                                             <img src="{% static 'assets/img/gallery/card.svg' %}" alt="">
-                                            <span>0</span>
+                                            <span>{% order_count  user %}</span>
                                         </a>
                                     </li>
                                 </ul>

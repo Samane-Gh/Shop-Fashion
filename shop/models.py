@@ -39,33 +39,32 @@ class Product(models.Model):
         listToStr = ' '.join(map(str, l))
         return listToStr +' ...'
     
-    def get_absolute_url(self):
-        return reverse('shop:details',kwargs={'pid':self.id})
+
+class Cart(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    active = models.BooleanField(default=True,null=True)
+    order_date = models.DateField(default=timezone.now)
+    total_price = models.FloatField(default=0.0)
+
+    def __str__(self): 
+            return "%s" % (self.user)
+         
     
-    @staticmethod
-    def get_products_by_id(pid):
-        return Product.objects.filter(id__in=pid)
-  
-    @staticmethod
-    def get_all_products():
-        return Product.objects.all()
-  
+        
 class Order(models.Model):
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, null=True, blank=True,on_delete=models.CASCADE)
     quantity = models.IntegerField(default=1)
     price = models.IntegerField()
     address = models.CharField(max_length=50, default='', blank=True)
     phone = models.CharField(max_length=50, default='', blank=True)
     date = models.DateField(default=timezone.now)
-    status = models.BooleanField(default=False)
+    status = models.BooleanField(default=True)
   
     def placeOrder(self):
         self.save()
   
-    @staticmethod
-    def get_orders_by_customer(pid):
-        return Order.objects.filter(customer=pid).order_by('-date')
     
 class Newsletter(models.Model):
     email = models.EmailField()
@@ -115,41 +114,4 @@ class Calender(models.Model):
 #         return self.product.name + " - " + self.product
 
 
-# class ProductOrder(models.Model):
-#     # cart = models.ForeignKey(Cart, null=True, blank=True,on_delete=models.CASCADE)
-#     user = models.ForeignKey(User, null=True,on_delete=models.CASCADE)
-#     product = models.ForeignKey(Product,on_delete=models.CASCADE)
-#     quantity = models.IntegerField(default=0)
-#     order_date = models.DateTimeField(default=timezone.now)
-#     updated_date = models.DateTimeField(default=timezone.now)
-#     active = models.BooleanField(default=True)
-#     unit_price = models.IntegerField(default=0)
 
-#     def __str__(self):
-#         return 'Order #' + (self.id) + ' of ' + self.product.title
-
-# class Cart(models.Model):
-#     user = models.ForeignKey(User,on_delete=models.CASCADE)
-#     active = models.BooleanField(default=True,null=True)
-#     order_date = models.DateField(default=timezone.now)
-#     price_total = models.IntegerField(default=0)
-
-#     def __str__(self): 
-#             return "%s" % (self.user)
-
-    # def cart_add(self, pid):
-    #     product = Product.objects.get(id=pid)
-    #     try:
-    #         preexisting_order = ProductOrder.objects.get(product=product, cart=self)
-    #         preexisting_order.quantity += 1
-    #         preexisting_order.save()
-    #     except ProductOrder.DoesNotExist:
-    #         new_order = ProductOrder.objects.create(
-    #             product=product,
-    #             cart=self,
-    #             quantity=1
-    #             )
-    #         new_order.save()
-
-    #         def __str__(self):
-    #             return "%s" % (self.pid)

@@ -3,7 +3,7 @@ from itertools import product
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render,get_object_or_404
-from shop.models import Order, Product,shopComment
+from shop.models import Order, Product,shopComment ,Cart
 from shop.models import Category 
 from django.utils import timezone
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -97,6 +97,25 @@ def shop_search(request):
 
 def my_view(request):
 	jalali_join1 = (datetime2jalali(request.user.date_joined)).strftime('%B')
+ 
+
+def cart_add(request,pid):
+    product = get_object_or_404(Product, pk=pid)
+    # order = Order.objects.get_or_create(price=product.price)
+    order = Order()
+    order.price = product.price
+    order.product_id = pid
+    order.user_id = request.user.id
+    order.save()
+    return render(request,'shop/shop-home.html') 
+
+def cart_detail(request):
+    cart=Cart.objects.all()
+    orders = Order.objects.order_by('date')
+    contex ={'orders':orders}
+    return render(request,'shop/cart_detail.html',contex)
+
+
 
 # def cart_view(self, request):
 #         product = request.POST.get('product')
@@ -136,15 +155,9 @@ def my_view(request):
 #         return render(request, 'index.html', {'orders': orders}) 
     
 
-def cart_add(request,pid):
-    product = get_object_or_404(Product, pk=pid)
-    # order = Order.objects.get_or_create(price=product.price)
-    order = Order()
-    order.price = product.price
-    order.product_id = pid
-    order.user_id = request.user.id
-    order.save()
-    return render(request,'shop/shop-home.html') 
+    # @staticmethod
+    # def get_orders_by_customer(pid):
+    #     return Order.objects.filter(customer=pid).order_by('-date')
     
     
 
