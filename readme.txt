@@ -1,21 +1,21 @@
-صفحات سایت فروشگاه آنلاین لباس با استفاده از پروژه "Shop-Fashion" به شرح زیر هستند:
+The pages of the online clothing store website using the "Shop-Fashion" project are as follows:
 
-1. صفحه خانه (Home Page):
-این صفحه، صفحه اصلی سایت می‌باشد و به کاربران اطلاعات کلی درباره سایت و محصولات ارائه می‌دهد. این صفحه معمولاً شامل بخش‌هایی همچون اسلایدر تصاویر، محصولات پرفروش، محصولات جدید، بلاگ‌ها و لینک‌های مهم مانند "ثبت‌نام"، "ورود" و "تماس با ما" است.
+1. Home Page:
+This page serves as the main page of the site and provides users with general information about the site and its products. Typically, this page includes sections such as image sliders, best-selling products, new products, blogs, and important links like "Sign Up," "Login," and "Contact Us."
 
-2. صفحه محصولات (Shop Page):
-در این صفحه، لیستی از محصولات موجود در فروشگاه به کاربران نمایش داده می‌شود. این محصولات می‌توانند بر اساس دسته‌بندی‌ها یا ترتیب زمانی (جدیدترین محصولات) نمایش داده شوند. کاربران می‌توانند با کلیک بر روی هر محصول وارد صفحه مشخصات محصول شوند.
+2. Shop Page:
+On this page, a list of products available in the store is displayed to users. These products can be shown based on categories or chronological order (newest products). Users can click on each product to enter the product details page.
 
-3. صفحه مشخصات محصول (Shop Detail Page):
-این صفحه، اطلاعات کامل مربوط به یک محصول خاص را به کاربران نمایش می‌دهد. اطلاعات شامل عکس‌های محصول، نام، قیمت، موجودی، اندازه‌ها، توضیحات و نظرات کاربران است. کاربران می‌توانند این محصول را به سبد خرید خود اضافه کنند یا نظرات خود را درباره محصول بیان کنند.
+3. Shop Detail Page:
+This page displays complete information about a specific product to users. Information includes product images, name, price, availability, sizes, descriptions, and user reviews. Users can add the product to their shopping cart or leave comments about the product.
 
-4. صفحه بلاگ (Blog Page):
-در این صفحه، لیستی از بلاگ‌ها و مطالب مرتبط با مد و فشن به کاربران نمایش داده می‌شود. هر بلاگ شامل تصویر، عنوان، خلاصه مطلب و تاریخ انتشار می‌باشد. کاربران می‌توانند با کلیک بر روی هر بلاگ وارد صفحه جزییات بلاگ شوند.
+4. Blog Page:
+On this page, a list of blogs and articles related to fashion and trends is presented to users. Each blog includes an image, title, summary, and publication date. Users can click on each blog to enter the blog details page.
 
-5. صفحه جزییات بلاگ (Blog Single Page):
-این صفحه، جزییات کامل یک بلاگ را به کاربران نمایش می‌دهد. اطلاعات شامل تصویر اصلی، عنوان، محتوا، نویسنده و تاریخ انتشار می‌باشد. کاربران می‌توانند نظرات خود را درباره بلاگ بیان کنند.
+5. Blog Single Page:
+This page provides users with the complete details of a blog, including the main image, title, content, author, and publication date. Users can leave comments about the blog.
 
-6. صفحه تماس با ما (Contact Page):
-در این صفحه، اطلاعات تماس با سایت و یا تیم مدیریتی به کاربران نمایش داده می‌شود. همچنین یک فرم تماس با ما نیز وجود دارد که کاربران می‌توانند پیام‌ها و سوالات خود را ارسال کنند.
+6. Contact Page:
+On this page, contact information for the site and/or the management team is displayed. There is also a contact form that allows users to send messages and questions.
 
-صفحات مذکور به صورت زیبا و کاربرپسند طراحی شده‌اند تا تجربه‌ی کاربری مناسبی را برای بازدیدکنندگان فراهم کنند. همچنین، صفحه‌ها به وسیله روت‌ها مدیریت می‌شوند و از دیتابیس برای ذخیره اطلاعات و نمایش محصولات و بلاگ‌ها استفاده می‌کنند.
+These pages are designed in a visually appealing and user-friendly manner to provide a suitable user experience for visitors. Additionally, the pages are managed through routes and utilize a database to store information and display products and blogs.
